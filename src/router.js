@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from './shared/presentation/views/home.vue';
 import DashboardView from '@/energy-analytics/presentation/views/dashboard-view.vue';
 
+import DevicesManagementView
+    from './device-iot-management/presentation/views/devices-management-view.vue';
+
 
 const subscriptionView = () =>
     import('./subscription-management/presentation/views/subscription-view.vue');
@@ -61,6 +64,14 @@ const routes = [
         path: '/profile',
         name: 'profile',
         component: DashboardView
+    },
+    {
+        path: '/devices',
+        name: 'devices',
+        component: DevicesManagementView,
+        meta: {
+            title: 'Devices'
+        }
     },
     { path: '/', redirect: '/home' },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: pageNotFound, meta: { title: 'Page Not Found' } }

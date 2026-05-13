@@ -1,69 +1,37 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "Leo Molina",
-      "email": "leo@hera.com",
-      "subscriptionPlan": "Premium"
-    }
-  ],
-
-  "subscriptions": [
-    {
-      "id": 1,
-      "plan": "Basic",
-      "price": 19.99,
-      "devices": 3
-    },
-    {
-      "id": 2,
-      "plan": "Premium",
-      "price": 39.99,
-      "devices": 10
-    }
-  ],
-
   "devices": [
     {
-      "id": 1,
-      "name": "Cámara 1 - Sala",
-      "type": "Security Camera",
-      "status": "Online"
+      "id": "1",
+      "name": "Smart Thermostat",
+      "type": "Climate",
+      "room": "Living Room",
+      "status": "Inactive",
+      "energyConsumption": 3.4
     },
     {
-      "id": 2,
-      "name": "Cámara 2 - Comedor",
-      "type": "Security Camera",
-      "status": "Online"
+      "id": "2",
+      "name": "Security Camera",
+      "type": "Security",
+      "room": "Entrance",
+      "status": "Active",
+      "energyConsumption": 1.8
     },
     {
-      "id": 3,
-      "name": "Aire acondicionado",
-      "type": "Energy Device",
-      "status": "Active"
+      "id": "3",
+      "name": "Smart Light",
+      "type": "Lighting",
+      "room": "Bedroom",
+      "status": "Inactive",
+      "energyConsumption": 0.9
+    },
+    {
+      "id": "DWuQai42MCU",
+      "name": "Smart TV",
+      "type": "Entertainment",
+      "room": "Living Room",
+      "status": "Active",
+      "energyConsumption": "2.1"
     }
   ],
-
-  "energy-consumption": [
-    {
-      "id": 1,
-      "month": "May 2025",
-      "consumption": "156.4 kWh",
-      "estimatedCost": "S/ 78.20"
-    },
-    {
-      "id": 2,
-      "month": "April 2025",
-      "consumption": "144.1 kWh",
-      "estimatedCost": "S/ 72.10"
-    }
-  ],
-
-  "alerts": [
-    {
-      "id": 1,
-      "type": "Consumption Alert",
-      "message": "Your consumption increased 8.5% compared to last month."
-    }
-  ]
+  "$schema": "./node_modules/json-server/schema.json"
 }
