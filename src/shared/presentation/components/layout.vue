@@ -1,20 +1,33 @@
 <script setup>
-import LanguageSwitcher from './language-switcher.vue';
-import FooterContent from './footer-content.vue';
-import { ref } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n();
-const drawer = ref(false);
+import LanguageSwitcher from './language-switcher.vue'
+import FooterContent from './footer-content.vue'
+import HeraSidebar from '@/shared/presentation/components/sidebar/hera-sidebar.component.vue'
+
+const { t } = useI18n()
+
+const drawer = ref(false)
+
 const toggleDrawer = () => {
-  drawer.value = !drawer.value;
-};
+  drawer.value = !drawer.value
+}
 
 const items = [
-  { label: 'option.home', to: '/home' },
-  { label: 'option.about', to: '/about' },
-  { label: 'option.subscription', to: '/subscription' }
-];
+  {
+    label: 'option.home',
+    to: '/home'
+  },
+  {
+    label: 'option.about',
+    to: '/about'
+  },
+  {
+    label: 'Subscription',
+    to: '/subscription'
+  }
+]
 </script>
 
 <template>
@@ -24,7 +37,13 @@ const items = [
   <div class="header">
     <pv-toolbar class="hera-toolbar">
       <template #start>
-        <pv-button class="p-button-text menu-button" icon="pi pi-bars" @click="toggleDrawer" />
+        <pv-button
+            class="p-button-text menu-button"
+            icon="pi pi-bars"
+            aria-label="Abrir menú"
+            @click="toggleDrawer"
+        />
+
         <h3>Hera Platform</h3>
       </template>
 
@@ -38,7 +57,10 @@ const items = [
               variant="text"
               v-slot="slotProps"
           >
-            <router-link :to="item.to" :class="slotProps['class']">
+            <router-link
+                :to="item.to"
+                :class="slotProps['class']"
+            >
               {{ t(item.label) }}
             </router-link>
           </pv-button>
@@ -51,9 +73,16 @@ const items = [
     <pv-drawer v-model:visible="drawer" />
   </div>
 
-  <main class="main-content">
-    <router-view />
-  </main>
+  <div class="layout-body">
+    <HeraSidebar />
+
+    <main
+        class="main-content"
+        aria-label="Contenido principal"
+    >
+      <router-view />
+    </main>
+  </div>
 
   <div class="footer">
     <footer-content />
@@ -62,55 +91,63 @@ const items = [
 
 <style scoped>
 .header {
-  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .hera-toolbar {
-  background: #0d1b2a !important;
-  border: none !important;
-  border-radius: 0 !important;
-  color: #ffffff !important;
-  padding: 1rem 2rem;
+  background: #0D1B2A;
+  border: none;
+  border-radius: 0;
+  padding: 0.75rem 1.5rem;
+  color: #F7F6F2;
+  box-shadow: 0 4px 18px rgba(13, 27, 42, 0.15);
 }
 
 .hera-toolbar h3 {
-  color: #ffffff;
-  margin: 0;
-}
-
-.menu-button {
-  color: #ffffff !important;
+  color: #D4AF37;
+  margin-left: 1rem;
+  font-weight: 700;
 }
 
 .navigation-links {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-right: 1rem;
+  gap: 0.5rem;
 }
 
-.navigation-links a {
-  color: #ffffff !important;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.6rem 1rem;
-  border-radius: 0.6rem;
-  transition: all 0.2s ease;
+.menu-button {
+  color: #D4AF37 !important;
 }
 
-.navigation-links a:hover {
-  background: rgba(212, 175, 55, 0.12);
-  color: #d4af37 !important;
+.layout-body {
+  display: flex;
+  min-height: calc(100vh - 80px);
+  background: #F7F6F2;
 }
 
 .main-content {
-  min-height: calc(100vh - 170px);
-  background: #f7f6f2;
+  flex: 1;
+  padding: 2rem;
+  overflow-x: hidden;
 }
 
 .footer {
   width: 100%;
-  background: #0d1b2a;
-  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .layout-body {
+    flex-direction: column;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .navigation-links {
+    display: none;
+  }
 }
 </style>

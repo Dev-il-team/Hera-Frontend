@@ -42,6 +42,26 @@ const routes = [
         component: consumptionSummaryView,
         meta: { title: 'Consumption Summary' }
     },
+    {
+        path: '/devices',
+        name: 'devices',
+        component: DashboardView
+    },
+    {
+        path: '/routines',
+        name: 'routines',
+        component: DashboardView
+    },
+    {
+        path: '/notifications',
+        name: 'notifications',
+        component: DashboardView
+    },
+    {
+        path: '/profile',
+        name: 'profile',
+        component: DashboardView
+    },
     { path: '/', redirect: '/home' },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: pageNotFound, meta: { title: 'Page Not Found' } }
 ];

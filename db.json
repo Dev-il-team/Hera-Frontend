@@ -1,0 +1,69 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Leo Molina",
+      "email": "leo@hera.com",
+      "subscriptionPlan": "Premium"
+    }
+  ],
+
+  "subscriptions": [
+    {
+      "id": 1,
+      "plan": "Basic",
+      "price": 19.99,
+      "devices": 3
+    },
+    {
+      "id": 2,
+      "plan": "Premium",
+      "price": 39.99,
+      "devices": 10
+    }
+  ],
+
+  "devices": [
+    {
+      "id": 1,
+      "name": "Cámara 1 - Sala",
+      "type": "Security Camera",
+      "status": "Online"
+    },
+    {
+      "id": 2,
+      "name": "Cámara 2 - Comedor",
+      "type": "Security Camera",
+      "status": "Online"
+    },
+    {
+      "id": 3,
+      "name": "Aire acondicionado",
+      "type": "Energy Device",
+      "status": "Active"
+    }
+  ],
+
+  "energy-consumption": [
+    {
+      "id": 1,
+      "month": "May 2025",
+      "consumption": "156.4 kWh",
+      "estimatedCost": "S/ 78.20"
+    },
+    {
+      "id": 2,
+      "month": "April 2025",
+      "consumption": "144.1 kWh",
+      "estimatedCost": "S/ 72.10"
+    }
+  ],
+
+  "alerts": [
+    {
+      "id": 1,
+      "type": "Consumption Alert",
+      "message": "Your consumption increased 8.5% compared to last month."
+    }
+  ]
+}
