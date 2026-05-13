@@ -2,11 +2,15 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from './shared/presentation/views/home.vue';
 import DashboardView from '@/energy-analytics/presentation/views/dashboard-view.vue';
 
+
 const subscriptionView = () =>
     import('./subscription-management/presentation/views/subscription-view.vue');
 
 const cameraMonitoringView = () =>
     import('./presentation/monitoring/views/camera-monitoring-view.vue');
+
+const consumptionSummaryView = () =>
+    import('./energy-analytics/presentation/views/consumption-summary-view.vue');
 
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
@@ -31,6 +35,12 @@ const routes = [
         name: 'camera-monitoring',
         component: cameraMonitoringView,
         meta: { title: 'Camera Monitoring' }
+    },
+    {
+        path: '/consumption-summary',
+        name: 'consumption-summary',
+        component: consumptionSummaryView,
+        meta: { title: 'Consumption Summary' }
     },
     { path: '/', redirect: '/home' },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: pageNotFound, meta: { title: 'Page Not Found' } }
