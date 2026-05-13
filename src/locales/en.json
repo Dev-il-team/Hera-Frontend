@@ -4,10 +4,18 @@
     "about": "About",
     "subscription": "Subscription"
   },
+  "nav": {
+    "home": "Home",
+    "consumption-summary": "Consumption summary",
+    "notifications": "Notifications",
+    "routines": "Routines",
+    "subscription": "My subscription",
+    "profile": "My profile"
+  },
   "authoring-phrase": {
     "intro": "Made with",
     "use": "using",
-    "author": "by {brand} Development Team"
+    "author": "by the {brand} Development Team"
   },
   "about": {
     "title": "About Us",
@@ -15,7 +23,20 @@
   },
   "home": {
     "title": "Welcome",
-    "content": "Welcome to Hera Platform."
+    "content": "Welcome to Hera Platform.",
+    "shortcut": {
+      "devices": "My devices",
+      "routines": "My routines",
+      "notifications": "Notifications"
+    }
+  },
+  "devices": {
+    "title": "My devices",
+    "subtitle": "Browse the device kinds registered in your home.",
+    "kind": {
+      "cameras": "Security cameras"
+    },
+    "kind-cameras-subtitle": "Monitor the state of your cameras in real time."
   },
   "page-not-found": {
     "title": "Page Not Found",
@@ -24,5 +45,107 @@
   },
   "errors": {
     "occurred": "Errors occurred"
+  },
+  "cameras": {
+    "device-title": "Device: Security cameras",
+    "device-subtitle": "Monitor the state of your cameras in real time.",
+    "my-cameras": "My cameras",
+    "status": "Status",
+    "last-activity": "Last activity",
+    "unknown": "Unknown",
+    "all-ok-title": "All your cameras are working correctly.",
+    "all-ok-subtitle": "You'll be notified if any unusual activity is detected.",
+    "connectivity": {
+      "online": "Online",
+      "offline": "Offline"
+    },
+    "operational": {
+      "normal": "Normal",
+      "alert": "Alert",
+      "unknown": "Unknown"
+    }
+  },
+  "routines": {
+    "title": "Routines",
+    "subtitle": "Manage and view all the automations scheduled in your home.",
+    "new": "New routine",
+    "new-title": "New routine",
+    "new-subtitle": "Define when this routine fires and what it does.",
+    "trigger-type": {
+      "schedule": "Schedule",
+      "condition": "Sensor condition",
+      "interval": "Interval"
+    },
+    "form": {
+      "name": "Name",
+      "description": "Description",
+      "trigger-type": "Trigger type",
+      "time": "Time (HH:MM)",
+      "frequency": "Frequency",
+      "sensor": "Sensor",
+      "operator": "Operator",
+      "threshold": "Threshold",
+      "every": "Every",
+      "unit": "Unit",
+      "device-id": "Target device id",
+      "command": "Command",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "my-routines": "My routines",
+    "automate-title": "Automate your home",
+    "automate-subtitle": "Routines help you save time and energy by automating daily tasks.",
+    "auto-run-title": "Your routines run automatically.",
+    "auto-run-subtitle": "You will receive a notification when an action is executed or requires your attention.",
+    "col": {
+      "name": "Name",
+      "description": "Description",
+      "trigger": "Trigger",
+      "action": "Action",
+      "status": "Status",
+      "next-execution": "Next execution",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "trigger": {
+      "schedule": "Every {frequency} at {time}",
+      "condition": "When {sensor} {operator} {threshold}",
+      "interval": "Every {every} {unit}"
+    },
+    "frequency": {
+      "daily": "day",
+      "weekly": "week",
+      "hourly": "hour"
+    },
+    "sensor": {
+      "temperature": "temperature",
+      "humidity": "humidity",
+      "motion": "motion"
+    },
+    "unit": {
+      "minutes": "minutes",
+      "hours": "hours",
+      "days": "days"
+    },
+    "command": {
+      "turn-on": "Turn on",
+      "turn-off": "Turn off",
+      "set-temperature": "Set temperature"
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "subtitle": "Stay informed about what's happening in your home.",
+    "filter-placeholder": "Filter",
+    "empty": "No notifications to show.",
+    "filter": {
+      "all": "All",
+      "security": "Security",
+      "energy": "Energy",
+      "automation": "Automation"
+    }
   }
 }

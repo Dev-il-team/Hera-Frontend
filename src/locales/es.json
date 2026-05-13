@@ -4,6 +4,14 @@
     "about": "Acerca de",
     "subscription": "Suscripción"
   },
+  "nav": {
+    "home": "Inicio",
+    "consumption-summary": "Resumen de consumo",
+    "notifications": "Notificaciones",
+    "routines": "Rutinas",
+    "subscription": "Mi suscripción",
+    "profile": "Mi perfil"
+  },
   "authoring-phrase": {
     "intro": "Hecho con",
     "use": "utilizando",
@@ -15,7 +23,20 @@
   },
   "home": {
     "title": "Inicio",
-    "content": "Bienvenido a Hera Platform."
+    "content": "Bienvenido a Hera Platform.",
+    "shortcut": {
+      "devices": "Mis dispositivos",
+      "routines": "Mis rutinas",
+      "notifications": "Notificaciones"
+    }
+  },
+  "devices": {
+    "title": "Mis dispositivos",
+    "subtitle": "Explora los tipos de dispositivos registrados en tu hogar.",
+    "kind": {
+      "cameras": "Cámaras de seguridad"
+    },
+    "kind-cameras-subtitle": "Monitorea en tiempo real el estado de tus cámaras."
   },
   "page-not-found": {
     "title": "Página no encontrada",
@@ -24,5 +45,107 @@
   },
   "errors": {
     "occurred": "Ocurrieron errores"
+  },
+  "cameras": {
+    "device-title": "Dispositivo: Cámaras de seguridad",
+    "device-subtitle": "Monitorea en tiempo real el estado de tus cámaras de seguridad.",
+    "my-cameras": "Mis cámaras",
+    "status": "Estado",
+    "last-activity": "Última actividad",
+    "unknown": "Desconocida",
+    "all-ok-title": "Todas tus cámaras están funcionando correctamente.",
+    "all-ok-subtitle": "Recibirás una notificación si se detecta cualquier actividad inusual.",
+    "connectivity": {
+      "online": "En línea",
+      "offline": "Desconectada"
+    },
+    "operational": {
+      "normal": "Normal",
+      "alert": "Alerta",
+      "unknown": "Desconocido"
+    }
+  },
+  "routines": {
+    "title": "Rutinas",
+    "subtitle": "Gestiona y visualiza todas las automatizaciones programadas en tu hogar.",
+    "new": "Nueva rutina",
+    "new-title": "Nueva rutina",
+    "new-subtitle": "Define cuándo se dispara esta rutina y qué hace.",
+    "trigger-type": {
+      "schedule": "Programación",
+      "condition": "Condición de sensor",
+      "interval": "Intervalo"
+    },
+    "form": {
+      "name": "Nombre",
+      "description": "Descripción",
+      "trigger-type": "Tipo de disparador",
+      "time": "Hora (HH:MM)",
+      "frequency": "Frecuencia",
+      "sensor": "Sensor",
+      "operator": "Operador",
+      "threshold": "Umbral",
+      "every": "Cada",
+      "unit": "Unidad",
+      "device-id": "ID del dispositivo objetivo",
+      "command": "Comando",
+      "save": "Guardar",
+      "cancel": "Cancelar"
+    },
+    "my-routines": "Mis rutinas",
+    "automate-title": "Automatiza tu hogar",
+    "automate-subtitle": "Las rutinas te ayudan a ahorrar tiempo y energía automatizando tareas diarias.",
+    "auto-run-title": "Tus rutinas se ejecutan automáticamente.",
+    "auto-run-subtitle": "Recibirás una notificación cuando una acción se ejecute o requiera tu atención.",
+    "col": {
+      "name": "Nombre",
+      "description": "Descripción",
+      "trigger": "Disparador",
+      "action": "Acción",
+      "status": "Estado",
+      "next-execution": "Próxima ejecución",
+      "actions": "Acciones"
+    },
+    "status": {
+      "active": "Activa",
+      "inactive": "Inactiva"
+    },
+    "trigger": {
+      "schedule": "Cada {frequency} a las {time}",
+      "condition": "Cuando {sensor} {operator} {threshold}",
+      "interval": "Cada {every} {unit}"
+    },
+    "frequency": {
+      "daily": "día",
+      "weekly": "semana",
+      "hourly": "hora"
+    },
+    "sensor": {
+      "temperature": "temperatura",
+      "humidity": "humedad",
+      "motion": "movimiento"
+    },
+    "unit": {
+      "minutes": "minutos",
+      "hours": "horas",
+      "days": "días"
+    },
+    "command": {
+      "turn-on": "Encender",
+      "turn-off": "Apagar",
+      "set-temperature": "Ajustar temperatura"
+    }
+  },
+  "notifications": {
+    "title": "Notificaciones",
+    "subtitle": "Mantente informado sobre lo que sucede en tu hogar.",
+    "filter-placeholder": "Filtrar",
+    "empty": "No hay notificaciones para mostrar.",
+    "filter": {
+      "all": "Todas",
+      "security": "Seguridad",
+      "energy": "Energía",
+      "automation": "Automatización"
+    }
   }
 }

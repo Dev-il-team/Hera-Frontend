@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from './shared/presentation/views/home.vue';
+
 import DashboardView from '@/energy-analytics/presentation/views/dashboard-view.vue';
 
 import DevicesManagementView
@@ -15,10 +16,15 @@ const cameraMonitoringView = () =>
 const consumptionSummaryView = () =>
     import('./energy-analytics/presentation/views/consumption-summary-view.vue');
 
+import deviceIotManagementRoutes from './device-iot-management/presentation/device-iot-management-routes.js';
+
+
+
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
 
 const routes = [
+
     { path: '/home', name: 'home', component: Home, meta: { title: 'Home' } },
     { path: '/about', name: 'about', component: about, meta: { title: 'About' } },
     {
@@ -45,21 +51,7 @@ const routes = [
         component: consumptionSummaryView,
         meta: { title: 'Consumption Summary' }
     },
-    {
-        path: '/devices',
-        name: 'devices',
-        component: DashboardView
-    },
-    {
-        path: '/routines',
-        name: 'routines',
-        component: DashboardView
-    },
-    {
-        path: '/notifications',
-        name: 'notifications',
-        component: DashboardView
-    },
+
     {
         path: '/profile',
         name: 'profile',
@@ -73,7 +65,10 @@ const routes = [
             title: 'Devices'
         }
     },
-    { path: '/', redirect: '/home' },
+
+
+    { path: '/devices',         children: deviceIotManagementRoutes },
+    { path: '/',                redirect: '/home' },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: pageNotFound, meta: { title: 'Page Not Found' } }
 ];
 
@@ -84,7 +79,10 @@ const router = createRouter({
 
 router.beforeEach((to, _from, next) => {
     const baseTitle = 'Hera Platform';
-    document.title = `${baseTitle} - ${to.meta['title']}`;
+
+
+    document.title = `${baseTitle} - ${to.meta['title'] ?? ''}`;
+
     return next();
 });
 
