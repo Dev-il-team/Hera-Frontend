@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from './shared/presentation/views/home.vue';
+import DashboardView from '@/energy-analytics/presentation/views/dashboard-view.vue'
 
 const subscriptionView = () =>
     import('./subscription-management/presentation/views/subscription-view.vue');
@@ -15,6 +16,11 @@ const routes = [
         name: 'subscription',
         component: subscriptionView,
         meta: { title: 'Subscription' }
+    },
+    {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: DashboardView
     },
     { path: '/',                redirect: '/home' },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: pageNotFound, meta: { title: 'Page Not Found' } }
