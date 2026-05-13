@@ -5,6 +5,11 @@ import PrimeVue from 'primevue/config';
 import Material from '@primeuix/themes/material';
 import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
+
+import Chart from 'primevue/chart';
+import ProgressBar from 'primevue/progressbar';
+import Dropdown from 'primevue/dropdown';
+
 import {
     Button,
     Card,
@@ -66,6 +71,9 @@ createApp(App)
     .component('pv-select', Select)
     .component('pv-select-button', SelectButton)
     .component('pv-tag', Tag)
+    .component('pv-chart', Chart)
+    .component('pv-progress-bar', ProgressBar)
+    .component('pv-dropdown', Dropdown)
     .component('pv-textarea', Textarea)
     .component('pv-toast', Toast)
     .component('pv-toolbar', Toolbar)
