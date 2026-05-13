@@ -1,12 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from './shared/presentation/views/home.vue';
 
+const subscriptionView = () =>
+    import('./subscription-management/presentation/views/subscription-view.vue');
+
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
 
 const routes = [
     { path: '/home',            name: 'home',      component: Home,        meta: { title: 'Home' } },
     { path: '/about',           name: 'about',     component: about,       meta: { title: 'About' } },
+    {
+        path: '/subscription',
+        name: 'subscription',
+        component: subscriptionView,
+        meta: { title: 'Subscription' }
+    },
     { path: '/',                redirect: '/home' },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: pageNotFound, meta: { title: 'Page Not Found' } }
 ];
