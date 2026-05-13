@@ -34,11 +34,6 @@ const menuItems = [
     label: 'Mi perfil',
     icon: 'pi pi-user',
     route: '/profile'
-  },
-  {
-    label: 'Devices',
-    icon: 'pi pi-desktop',
-    to: '/devices'
   }
 ]
 
