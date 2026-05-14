@@ -1,0 +1,140 @@
+{
+  "devices": [
+    {
+      "id": "1",
+      "name": "Smart Thermostat",
+      "type": "Climate",
+      "room": "Living Room",
+      "status": "Inactive",
+      "energyConsumption": 3.4
+    },
+    {
+      "id": "2",
+      "name": "Security Camera",
+      "type": "Security",
+      "room": "Entrance",
+      "status": "Active",
+      "energyConsumption": 1.8
+    },
+    {
+      "id": "3",
+      "name": "Smart Light",
+      "type": "Lighting",
+      "room": "Bedroom",
+      "status": "Inactive",
+      "energyConsumption": 0.9
+    },
+    {
+      "id": "DWuQai42MCU",
+      "name": "Smart TV",
+      "type": "Entertainment",
+      "room": "Living Room",
+      "status": "Active",
+      "energyConsumption": "2.1"
+    }
+  ],
+  "cameras": [
+    {
+      "id": 1,
+      "name": "Cámara 1 - Sala",
+      "location": "Sala",
+      "snapshotUrl": "",
+      "lastActivityAt": "2026-05-13T10:24:35",
+      "connectivityStatus": "online",
+      "operationalStatus": "normal"
+    },
+    {
+      "id": 2,
+      "name": "Cámara 2 - Comedor",
+      "location": "Comedor",
+      "snapshotUrl": "",
+      "lastActivityAt": "2026-05-13T10:24:35",
+      "connectivityStatus": "online",
+      "operationalStatus": "normal"
+    },
+    {
+      "id": 3,
+      "name": "Cámara 3 - Entrada",
+      "location": "Entrada",
+      "snapshotUrl": "",
+      "lastActivityAt": "2026-05-13T10:24:35",
+      "connectivityStatus": "online",
+      "operationalStatus": "alert"
+    }
+  ],
+  "routines": [
+    {
+      "id": 1,
+      "name": "Rutina 1",
+      "description": "Lavadora automática",
+      "trigger": { "type": "schedule", "time": "11:00", "frequency": "daily" },
+      "action": { "deviceId": "washer-01", "command": "turn-on" },
+      "status": "active",
+      "nextExecution": "2026-05-26T11:00:00"
+    },
+    {
+      "id": 2,
+      "name": "Rutina 2",
+      "description": "Termostato confort",
+      "trigger": { "type": "condition", "sensorType": "temperature", "operator": ">", "threshold": 20 },
+      "action": { "deviceId": "thermostat-01", "command": "set-temperature" },
+      "status": "active",
+      "nextExecution": "2026-05-13T11:00:00"
+    },
+    {
+      "id": 3,
+      "name": "Rutina 3",
+      "description": "Apagar luces no esenciales",
+      "trigger": { "type": "interval", "every": 1, "unit": "hours" },
+      "action": { "deviceId": "lights-non-essential", "command": "turn-off" },
+      "status": "inactive",
+      "nextExecution": null
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "title": "Cámara 3 registró alerta de intruso",
+      "body": "Haga clic para observar la grabación.",
+      "severity": "alert",
+      "category": "security",
+      "occurredAt": "2026-05-13T10:23:00",
+      "read": false,
+      "relatedEntityType": "camera",
+      "relatedEntityId": "3"
+    },
+    {
+      "id": 2,
+      "title": "Su consumo del día de ayer ha superado su límite diario establecido.",
+      "body": "",
+      "severity": "warning",
+      "category": "energy",
+      "occurredAt": "2026-05-13T07:00:00",
+      "read": false,
+      "relatedEntityType": "energy",
+      "relatedEntityId": null
+    },
+    {
+      "id": 3,
+      "title": "Su uso de energía del último mes es menor a su promedio.",
+      "body": "Felicitaciones, estimamos que ha ahorrado unos S/. 25.",
+      "severity": "success",
+      "category": "energy",
+      "occurredAt": "2026-05-12T09:30:00",
+      "read": true,
+      "relatedEntityType": "energy",
+      "relatedEntityId": null
+    },
+    {
+      "id": 4,
+      "title": "Revise sus rutinas",
+      "body": "Actualice las que tiene activas o elimine las que ya no requiera.",
+      "severity": "info",
+      "category": "automation",
+      "occurredAt": "2026-05-12T19:15:00",
+      "read": true,
+      "relatedEntityType": "routine",
+      "relatedEntityId": null
+    }
+  ]
+}
