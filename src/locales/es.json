@@ -147,5 +147,21 @@
       "energy": "Energía",
       "automation": "Automatización"
     }
+  },
+  "dashboard": {
+    "greeting": "Hola, bienvenido de vuelta 👋",
+    "title": "Dashboard",
+    "description": "Resumen del estado actual de tu hogar inteligente en tiempo real.",
+    "lastUpdate": "Última actualización",
+    "todayTime": "Hoy, 10:30 AM",
+    "deviceConsumption": "Consumo por dispositivo",
+    "total": "Total",
+    "device": "Dispositivo",
+    "consumption": "Consumo (kWh)",
+    "percentage": "% del total",
+    "viewAllDevices": "Ver todos los dispositivos",
+    "lightsOn": "Cantidad de focos encendidos",
+    "plugsUsed": "Cantidad de enchufes siendo usados",
+    "currentlyActive": "Activos actualmente"
   }
 }

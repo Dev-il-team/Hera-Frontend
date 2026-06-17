@@ -224,6 +224,8 @@ export default {
     return {
       logo: heraLogo,
 
+      currentPlan: 'Básico',
+
       planFeatures: [
         {
           name: 'Resumen de consumo',

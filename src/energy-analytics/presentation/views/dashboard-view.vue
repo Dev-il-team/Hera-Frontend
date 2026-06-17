@@ -12,15 +12,15 @@ const devices = [
 
 const summaryCards = [
   {
-    title: 'Cantidad de focos encendidos',
-    subtitle: 'Activos actualmente',
+    title: 'dashboard.lightsOn',
+    subtitle: 'dashboard.currentlyActive',
     value: 4,
     icon: 'pi pi-lightbulb',
     className: 'lights'
   },
   {
-    title: 'Cantidad de enchufes siendo usados',
-    subtitle: 'Activos actualmente',
+    title: 'dashboard.plugsUsed',
+    subtitle: 'dashboard.currentlyActive',
     value: 10,
     icon: 'pi pi-bolt',
     className: 'plugs'
@@ -32,18 +32,18 @@ const summaryCards = [
   <main class="dashboard-view" aria-labelledby="dashboard-title">
     <section class="dashboard-hero">
       <div>
-        <p class="hero-greeting">Hola, bienvenido de vuelta 👋</p>
-        <h1 id="dashboard-title">Dashboard</h1>
+        <p class="hero-greeting">{{ $t('dashboard.greeting') }}</p>
+        <h1 id="dashboard-title">{{ $t('dashboard.title') }}</h1>
         <p class="hero-description">
-          Resumen del estado actual de tu hogar inteligente en tiempo real.
+          {{ $t('dashboard.description') }}
         </p>
       </div>
 
       <aside class="update-card" aria-label="Última actualización del dashboard">
         <i class="pi pi-clock" aria-hidden="true"></i>
         <div>
-          <span>Última actualización</span>
-          <strong>Hoy, 10:30 AM</strong>
+          <span>{{ $t('dashboard.lastUpdate') }}</span>
+          <strong>{{ $t('dashboard.todayTime') }}</strong>
         </div>
         <span class="status-dot" aria-label="Estado conectado"></span>
       </aside>
@@ -51,7 +51,9 @@ const summaryCards = [
 
     <section class="consumption-card" aria-labelledby="consumption-title">
       <div class="card-header">
-        <h2 id="consumption-title">Consumo por dispositivo</h2>
+        <h2 id="consumption-title">
+          {{ $t('dashboard.deviceConsumption') }}
+        </h2>
         <i class="pi pi-info-circle" aria-hidden="true"></i>
       </div>
 
@@ -66,9 +68,9 @@ const summaryCards = [
 
         <div class="device-table" role="table" aria-label="Tabla de consumo por dispositivo">
           <div class="table-row table-head" role="row">
-            <span role="columnheader">Dispositivo</span>
-            <span role="columnheader">Consumo (kWh)</span>
-            <span role="columnheader">% del total</span>
+            <span role="columnheader">{{ $t('dashboard.device') }}</span>
+            <span role="columnheader">{{ $t('dashboard.consumption') }}</span>
+            <span role="columnheader">{{ $t('dashboard.percentage') }}</span>
           </div>
 
           <div
@@ -86,8 +88,8 @@ const summaryCards = [
             <span role="cell">{{ device.percentage }}%</span>
           </div>
 
-          <button class="devices-link" type="button" aria-label="Ver todos los dispositivos">
-            Ver todos los dispositivos
+          <button class="devices-link" type="button">
+            {{ $t('dashboard.viewAllDevices') }}
             <i class="pi pi-arrow-right" aria-hidden="true"></i>
           </button>
         </div>
@@ -106,8 +108,8 @@ const summaryCards = [
         </div>
 
         <div class="summary-info">
-          <h3>{{ card.title }}</h3>
-          <p>{{ card.subtitle }}</p>
+          <h3>{{ $t(card.title) }}</h3>
+          <p>{{ $t(card.subtitle) }}</p>
         </div>
 
         <strong class="summary-value">{{ card.value }}</strong>
