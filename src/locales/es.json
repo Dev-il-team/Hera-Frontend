@@ -163,5 +163,21 @@
     "lightsOn": "Cantidad de focos encendidos",
     "plugsUsed": "Cantidad de enchufes siendo usados",
     "currentlyActive": "Activos actualmente"
+  },
+  "consumptionSummary": {
+    "title": "Resumen de consumo",
+    "description": "Visualiza tu consumo energético y estimación de gasto.",
+    "selectMonth": "Seleccionar mes de consumo",
+    "months": {
+      "may2025": "Mayo 2025",
+      "april2025": "Abril 2025",
+      "march2025": "Marzo 2025"
+    },
+    "cards": {
+      "totalConsumption": "Consumo total (kWh)",
+      "estimatedCost": "Gasto estimado",
+      "dailyAverage": "Promedio diario",
+      "remainingDays": "Días restantes"
+    }
   }
 }

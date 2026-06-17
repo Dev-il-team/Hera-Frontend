@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 import SummaryCardComponent from '../components/summary-card.component.vue';
 import ConsumptionChartComponent from '../components/consumption-chart.component.vue';
@@ -9,11 +10,13 @@ import ConsumptionAlertComponent from '../components/consumption-alert.component
 
 const selectedMonth = ref('may-2025');
 
-const monthOptions = [
-  { label: 'Mayo 2025', value: 'may-2025' },
-  { label: 'Abril 2025', value: 'apr-2025' },
-  { label: 'Marzo 2025', value: 'mar-2025' }
-];
+const { t } = useI18n();
+
+const monthOptions = computed(() => [
+  { label: t('consumptionSummary.months.may2025'), value: 'may-2025' },
+  { label: t('consumptionSummary.months.april2025'), value: 'apr-2025' },
+  { label: t('consumptionSummary.months.march2025'), value: 'mar-2025' }
+]);
 
 const monthlyData = {
   'may-2025': {
@@ -91,28 +94,28 @@ const currentData = computed(() => monthlyData[selectedMonth.value]);
 
 const summaryCards = computed(() => [
   {
-    title: 'Consumo total (kWh)',
+    title: t('consumptionSummary.cards.totalConsumption'),
     value: currentData.value.consumption,
     subtitle: currentData.value.comparison,
     icon: 'pi pi-bolt',
     color: '#3b82f6'
   },
   {
-    title: 'Gasto estimado',
+    title: t('consumptionSummary.cards.estimatedCost'),
     value: currentData.value.cost,
     subtitle: currentData.value.costComparison,
     icon: 'pi pi-wallet',
     color: '#22c55e'
   },
   {
-    title: 'Promedio diario',
+    title: t('consumptionSummary.cards.dailyAverage'),
     value: currentData.value.average,
     subtitle: currentData.value.averageComparison,
     icon: 'pi pi-chart-line',
     color: '#8b5cf6'
   },
   {
-    title: 'Días restantes',
+    title: t('consumptionSummary.cards.remainingDays'),
     value: currentData.value.remainingDays,
     subtitle: currentData.value.period,
     icon: 'pi pi-calendar',
@@ -128,10 +131,10 @@ const summaryCards = computed(() => [
     <div class="header-section">
 
       <div>
-        <h1>Resumen de consumo</h1>
+        <h1>{{ t('consumptionSummary.title') }}</h1>
 
         <p>
-          Visualiza tu consumo energético y estimación de gasto.
+          {{ t('consumptionSummary.description') }}
         </p>
       </div>
 
@@ -143,7 +146,7 @@ const summaryCards = computed(() => [
             option-label="label"
             option-value="value"
             class="month-dropdown"
-            aria-label="Seleccionar mes de consumo"
+            :aria-label="t('consumptionSummary.selectMonth')"
         />
 
       </div>
@@ -271,6 +274,15 @@ const summaryCards = computed(() => [
 
   .header-section h1 {
     font-size: 2rem;
+  }
+
+  .header-actions,
+  .month-dropdown {
+    width: 100%;
+  }
+
+  .month-dropdown {
+    min-width: 100%;
   }
 
 }

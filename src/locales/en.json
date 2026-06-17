@@ -163,5 +163,21 @@
     "lightsOn": "Lights currently on",
     "plugsUsed": "Plugs currently in use",
     "currentlyActive": "Currently active"
+  },
+  "consumptionSummary": {
+    "title": "Consumption Summary",
+    "description": "View your energy consumption and estimated cost.",
+    "selectMonth": "Select consumption month",
+    "months": {
+      "may2025": "May 2025",
+      "april2025": "April 2025",
+      "march2025": "March 2025"
+    },
+    "cards": {
+      "totalConsumption": "Total Consumption (kWh)",
+      "estimatedCost": "Estimated Cost",
+      "dailyAverage": "Daily Average",
+      "remainingDays": "Remaining Days"
+    }
   }
 }
