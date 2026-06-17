@@ -178,6 +178,43 @@
       "estimatedCost": "Estimated Cost",
       "dailyAverage": "Daily Average",
       "remainingDays": "Remaining Days"
+    },
+    "chart": {
+      "title": "Total Consumption (kWh)",
+      "daily": "Daily",
+      "datasetLabel": "Consumption kWh",
+      "highestConsumption": "Your highest consumption was on {day} with {value}."
+    },
+    "devices": {
+      "title": "Consumption by Device",
+      "subtitle": "Top devices this month"
+    },
+    "tip": {
+      "title": "Saving Recommendation"
+    },
+    "alert": {
+      "title": "Consumption Alert",
+      "previousMonth": "Previous Month",
+      "currentMonth": "Current Month",
+      "difference": "Difference",
+      "footer": "Review high-consumption devices to optimize energy usage."
+    },
+    "data": {
+      "may": {
+        "remainingDays": "12 days",
+        "comparison": "+8.5% vs April 2025",
+        "costComparison": "+6.3% vs April 2025",
+        "averageComparison": "+0.5 kWh vs April 2025",
+        "period": "Period: 1 - 31 May 2025",
+        "highestDay": "May 19",
+        "tip": "Air conditioning represents the highest consumption this month. Reducing its use by 1 hour per day could save approximately 9.6 kWh per month.",
+        "alert": "Your consumption increased by 8.5% compared to the previous month.",
+        "devices": {
+          "airConditioning": "Air Conditioning",
+          "refrigerator": "Refrigerator",
+          "washingMachine": "Washing Machine"
+        }
+      }
     }
   }
 }

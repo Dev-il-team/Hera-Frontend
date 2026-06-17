@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const props = defineProps({
   chartValues: {
@@ -16,11 +17,13 @@ const props = defineProps({
   }
 });
 
+const { t } = useI18n();
+
 const chartData = computed(() => ({
   labels: ['18 May', '19 May', '20 May', '21 May', '22 May', '23 May', '24 May'],
   datasets: [
     {
-      label: 'Consumo kWh',
+      label: t('consumptionSummary.chart.datasetLabel'),
       data: props.chartValues,
       borderColor: '#3b82f6',
       backgroundColor: 'rgba(59,130,246,0.2)',
@@ -67,10 +70,10 @@ const chartOptions = {
   <pv-card class="chart-card">
     <template #content>
       <div class="chart-header">
-        <h2>Consumo total (kWh)</h2>
+        <h2>{{ t('consumptionSummary.chart.title') }}</h2>
 
         <pv-tag
-            value="Diario"
+            :value="t('consumptionSummary.chart.daily')"
             severity="info"
         />
       </div>
@@ -87,7 +90,7 @@ const chartOptions = {
         <i class="pi pi-bolt"></i>
 
         <span>
-          Tu consumo más alto fue el {{ highestDay }} con {{ highestValue }}.
+          {{ t('consumptionSummary.chart.highestConsumption', { day: highestDay, value: highestValue }) }}
         </span>
       </div>
     </template>

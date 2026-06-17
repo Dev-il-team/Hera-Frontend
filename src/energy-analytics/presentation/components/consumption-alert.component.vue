@@ -1,4 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
 defineProps({
   alert: {
     type: String,
@@ -34,7 +38,7 @@ defineProps({
         <div>
 
           <h2>
-            Alerta de consumo
+            {{ t('consumptionSummary.alert.title') }}
           </h2>
 
           <p>
@@ -50,7 +54,7 @@ defineProps({
         <div class="alert-item">
 
           <span class="label">
-            Mes anterior
+            {{ t('consumptionSummary.alert.previousMonth') }}
           </span>
 
           <strong>
@@ -62,7 +66,7 @@ defineProps({
         <div class="alert-item">
 
           <span class="label">
-            Mes actual
+            {{ t('consumptionSummary.alert.currentMonth') }}
           </span>
 
           <strong>
@@ -74,7 +78,7 @@ defineProps({
         <div class="alert-item">
 
           <span class="label">
-            Diferencia
+            {{ t('consumptionSummary.alert.difference') }}
           </span>
 
           <strong
@@ -94,7 +98,7 @@ defineProps({
         <i class="pi pi-info-circle"></i>
 
         <span>
-          Revisa dispositivos de alto consumo para optimizar energía.
+          {{ t('consumptionSummary.alert.footer') }}
         </span>
 
       </div>

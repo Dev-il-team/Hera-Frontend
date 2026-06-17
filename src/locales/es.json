@@ -178,6 +178,43 @@
       "estimatedCost": "Gasto estimado",
       "dailyAverage": "Promedio diario",
       "remainingDays": "Días restantes"
+    },
+    "chart": {
+      "title": "Consumo total (kWh)",
+      "daily": "Diario",
+      "datasetLabel": "Consumo kWh",
+      "highestConsumption": "Tu consumo más alto fue el {day} con {value}."
+    },
+    "devices": {
+      "title": "Consumo por dispositivo",
+      "subtitle": "Top dispositivos del mes"
+    },
+    "tip": {
+      "title": "Recomendación de ahorro"
+    },
+    "alert": {
+      "title": "Alerta de consumo",
+      "previousMonth": "Mes anterior",
+      "currentMonth": "Mes actual",
+      "difference": "Diferencia",
+      "footer": "Revisa dispositivos de alto consumo para optimizar energía."
+    },
+    "data": {
+      "may": {
+        "remainingDays": "12 días",
+        "comparison": "+8.5% vs abril 2025",
+        "costComparison": "+6.3% vs abril 2025",
+        "averageComparison": "+0.5 kWh vs abril 2025",
+        "period": "Periodo: 1 - 31 May 2025",
+        "highestDay": "19 de mayo",
+        "tip": "El aire acondicionado representa el mayor consumo del mes. Reducir su uso 1 hora diaria podría ahorrar aproximadamente 9.6 kWh al mes.",
+        "alert": "Tu consumo aumentó 8.5% respecto al mes anterior.",
+        "devices": {
+          "airConditioning": "Aire acondicionado",
+          "refrigerator": "Refrigeradora",
+          "washingMachine": "Lavadora"
+        }
+      }
     }
   }
 }

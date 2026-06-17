@@ -18,26 +18,26 @@ const monthOptions = computed(() => [
   { label: t('consumptionSummary.months.march2025'), value: 'mar-2025' }
 ]);
 
-const monthlyData = {
+const monthlyData = computed(() => ({
   'may-2025': {
     consumption: '156.4 kWh',
     cost: 'S/ 78.20',
     average: '5.05 kWh',
-    remainingDays: '12 días',
-    comparison: '+8.5% vs abril 2025',
-    costComparison: '+6.3% vs abril 2025',
-    averageComparison: '+0.5 kWh vs abril 2025',
-    period: 'Periodo: 1 - 31 May 2025',
+    remainingDays: t('consumptionSummary.data.may.remainingDays'),
+    comparison: t('consumptionSummary.data.may.comparison'),
+    costComparison: t('consumptionSummary.data.may.costComparison'),
+    averageComparison: t('consumptionSummary.data.may.averageComparison'),
+    period: t('consumptionSummary.data.may.period'),
     chartValues: [13, 19, 14, 18, 15, 11, 13],
-    highestDay: '19 de mayo',
+    highestDay: t('consumptionSummary.data.may.highestDay'),
     highestValue: '19 kWh',
     devices: [
-      { name: 'Aire acondicionado', consumption: '48.2 kWh', percentage: 31, icon: 'pi pi-sun' },
-      { name: 'Refrigeradora', consumption: '36.7 kWh', percentage: 23, icon: 'pi pi-box' },
-      { name: 'Lavadora', consumption: '22.4 kWh', percentage: 14, icon: 'pi pi-refresh' }
+      { name: t('consumptionSummary.data.may.devices.airConditioning'), consumption: '48.2 kWh', percentage: 31, icon: 'pi pi-sun' },
+      { name: t('consumptionSummary.data.may.devices.refrigerator'), consumption: '36.7 kWh', percentage: 23, icon: 'pi pi-box' },
+      { name: t('consumptionSummary.data.may.devices.washingMachine'), consumption: '22.4 kWh', percentage: 14, icon: 'pi pi-refresh' }
     ],
-    tip: 'El aire acondicionado representa el mayor consumo del mes. Reducir su uso 1 hora diaria podría ahorrar aproximadamente 9.6 kWh al mes.',
-    alert: 'Tu consumo aumentó 8.5% respecto al mes anterior.',
+    tip: t('consumptionSummary.data.may.tip'),
+    alert: t('consumptionSummary.data.may.alert'),
     previousConsumption: '144.1 kWh',
     currentConsumption: '156.4 kWh',
     difference: '+12.3 kWh'
@@ -88,9 +88,9 @@ const monthlyData = {
     currentConsumption: '148.9 kWh',
     difference: '+5.9 kWh'
   }
-};
+}));
 
-const currentData = computed(() => monthlyData[selectedMonth.value]);
+const currentData = computed(() => monthlyData.value[selectedMonth.value]);
 
 const summaryCards = computed(() => [
   {
