@@ -216,5 +216,17 @@
         }
       }
     }
+  },
+  "monitoring": {
+    "title": "Dispositivo: Cámaras de seguridad",
+    "subtitle": "Selecciona una cámara para ver su transmisión en vivo.",
+    "viewStream": "Ver transmisión",
+    "viewStreamAria": "Ver transmisión de cámara",
+    "live": "EN VIVO",
+    "livePlayer": "Reproductor en vivo",
+    "capturedStatus": "Estado capturado",
+    "lastUpdate": "Última actualización: hace unos segundos.",
+    "activeCamera": "Cámara activa",
+    "activeCameraDescription": "Transmisión en vivo mostrando el estado capturado."
   }
 }

@@ -216,5 +216,17 @@
         }
       }
     }
+  },
+  "monitoring": {
+    "title": "Device: Security Cameras",
+    "subtitle": "Select a camera to view its live stream.",
+    "viewStream": "View Stream",
+    "viewStreamAria": "View camera stream",
+    "live": "LIVE",
+    "livePlayer": "Live Player",
+    "capturedStatus": "Captured Status",
+    "lastUpdate": "Last update: a few seconds ago.",
+    "activeCamera": "Active Camera",
+    "activeCameraDescription": "Live stream showing the captured status."
   }
 }

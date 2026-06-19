@@ -1,9 +1,12 @@
 <script setup>
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 import CameraCardComponent from '../components/camera-card.component.vue';
 import LivePlayerComponent from '../components/live-player.component.vue';
 import CameraStatusBannerComponent from '../components/camera-status-banner.component.vue';
+
+const { t } = useI18n();
 
 const cameras = [
   {
@@ -43,10 +46,10 @@ const selectCamera = (camera) => {
   <section class="camera-monitoring-container">
 
     <div class="header-section">
-      <h1>Dispositivo: Cámaras de seguridad</h1>
+      <h1>{{ t('monitoring.title') }}</h1>
 
       <p>
-        Selecciona una cámara para ver su transmisión en vivo.
+        {{ t('monitoring.subtitle') }}
       </p>
     </div>
 
