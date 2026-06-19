@@ -2,25 +2,22 @@
   <main class="subscription-view" aria-labelledby="subscription-title">
     <section class="subscription-hero">
       <div>
-        <span class="section-eyebrow">Gestión de Suscripciones</span>
+        <span class="section-eyebrow">{{ $t('subscription.eyebrow') }}</span>
 
-        <h1 id="subscription-title">Planes de suscripción</h1>
+        <h1 id="subscription-title">{{ $t('subscription.title') }}</h1>
 
-        <p>
-          Consulta tu plan actual, compara los beneficios disponibles y elige la
-          mejor opción para gestionar tu hogar inteligente con Hera.
-        </p>
+        <p>{{ $t('subscription.description') }}</p>
       </div>
 
       <pv-tag
-          :value="`Plan actual: ${currentPlan}`"
+          :value="$t('subscription.currentPlanTag', { plan: $t(`subscription.plans.${currentPlanKey}`) })"
           icon="pi pi-check-circle"
           class="current-plan-tag"
-          aria-label="Plan actual básico"
+          :aria-label="$t('subscription.currentPlanAria')"
       />
     </section>
 
-    <section class="grid subscription-plans" aria-label="Planes disponibles">
+    <section class="grid subscription-plans" :aria-label="$t('subscription.availablePlansAria')">
       <article class="col-12 lg:col-5">
         <pv-card class="plan-card basic-card">
           <template #content>
@@ -29,29 +26,23 @@
                 <i class="pi pi-home"></i>
               </div>
 
-              <span class="plan-label">Plan actual</span>
+              <span class="plan-label">{{ $t('subscription.currentPlanLabel') }}</span>
 
-              <h2>{{ currentPlan }}</h2>
+              <h2>{{ $t(`subscription.plans.${currentPlanKey}`) }}</h2>
 
-              <p class="plan-description">
-                Funciones esenciales para monitorear y administrar tu hogar
-                inteligente.
-              </p>
+              <p class="plan-description">{{ $t('subscription.basicDescription') }}</p>
 
-              <div
-                  class="plan-price"
-                  aria-label="Precio del plan básico"
-              >
+              <div class="plan-price" :aria-label="$t('subscription.basicPriceAria')">
                 <span>€0</span>
-                <small>/ mes</small>
+                <small>{{ $t('subscription.perMonth') }}</small>
               </div>
 
               <pv-button
-                  label="Plan activo"
+                  :label="$t('subscription.activePlan')"
                   icon="pi pi-check"
                   class="active-button"
                   disabled
-                  aria-label="El plan básico está activo"
+                  :aria-label="$t('subscription.activePlanAria')"
               />
             </div>
           </template>
@@ -66,40 +57,35 @@
                 <div class="plan-icon premium-icon">
                   <img
                       :src="logo"
-                      alt="Logo Hera Premium"
+                      :alt="$t('subscription.premiumLogoAlt')"
                       class="premium-logo"
                   />
                 </div>
-                <span class="plan-label premium-label">Recomendado</span>
 
-                <h2>Premium</h2>
+                <span class="plan-label premium-label">{{ $t('subscription.recommended') }}</span>
 
-                <p class="plan-description">
-                  Más automatización, análisis avanzado y soporte prioritario
-                  para aprovechar al máximo Hera.
-                </p>
+                <h2>{{ $t('subscription.plans.premium') }}</h2>
 
-                <div
-                    class="plan-price premium-price"
-                    aria-label="Precio del plan premium"
-                >
+                <p class="plan-description">{{ $t('subscription.premiumDescription') }}</p>
+
+                <div class="plan-price premium-price" :aria-label="$t('subscription.premiumPriceAria')">
                   <span>€9.99</span>
-                  <small>/ mes</small>
+                  <small>{{ $t('subscription.perMonth') }}</small>
                 </div>
               </div>
 
               <div class="premium-actions">
                 <pv-button
                     :label="currentPlan === 'Premium'
-                      ? 'Plan activo'
-                      : 'Mejorar a Premium'"
+                      ? $t('subscription.activePlan')
+                      : $t('subscription.upgradeToPremium')"
                     :icon="currentPlan === 'Premium'
                       ? 'pi pi-check'
                       : 'pi pi-arrow-right'"
                     icon-pos="right"
                     class="upgrade-button"
                     :disabled="currentPlan === 'Premium'"
-                    aria-label="Mejorar al plan premium"
+                    :aria-label="$t('subscription.upgradeToPremiumAria')"
                     @click="upgradePlan"
                 />
               </div>
@@ -109,38 +95,29 @@
       </article>
     </section>
 
-    <section
-        class="comparison-card"
-        aria-labelledby="comparison-title"
-    >
+    <section class="comparison-card" aria-labelledby="comparison-title">
       <div class="comparison-header">
         <div>
-          <span class="section-eyebrow">Comparación</span>
+          <span class="section-eyebrow">{{ $t('subscription.comparisonEyebrow') }}</span>
 
-          <h2 id="comparison-title">Beneficios por plan</h2>
+          <h2 id="comparison-title">{{ $t('subscription.comparisonTitle') }}</h2>
         </div>
 
-        <p>
-          Escenario 1: el usuario consulta los planes disponibles y sus
-          beneficios.
-        </p>
+        <p>{{ $t('subscription.scenario') }}</p>
       </div>
 
       <div
           class="features-comparison"
           role="table"
-          aria-label="Comparación de beneficios entre plan básico y premium"
+          :aria-label="$t('subscription.comparisonAria')"
       >
         <div class="comparison-row comparison-head" role="row">
-          <div role="columnheader">Beneficio</div>
+          <div role="columnheader">{{ $t('subscription.benefit') }}</div>
 
-          <div role="columnheader">Básico</div>
+          <div role="columnheader">{{ $t('subscription.plans.basic') }}</div>
 
-          <div
-              role="columnheader"
-              class="premium-column"
-          >
-            Premium
+          <div role="columnheader" class="premium-column">
+            {{ $t('subscription.plans.premium') }}
           </div>
         </div>
 
@@ -151,32 +128,29 @@
             role="row"
         >
           <div class="feature-name" role="cell">
-            <i
-                :class="feature.icon"
-                aria-hidden="true"
-            ></i>
+            <i :class="feature.icon" aria-hidden="true"></i>
 
-            <span>{{ feature.name }}</span>
+            <span>{{ $t(feature.name) }}</span>
           </div>
 
           <div role="cell">
             <i
                 v-if="feature.basic"
                 class="pi pi-check check-icon"
-                aria-label="Incluido en el plan básico"
+                :aria-label="$t('subscription.includedBasicAria')"
             ></i>
 
             <i
                 v-else
                 class="pi pi-minus minus-icon"
-                aria-label="No incluido en el plan básico"
+                :aria-label="$t('subscription.notIncludedBasicAria')"
             ></i>
           </div>
 
           <div role="cell" class="premium-column">
             <i
                 class="pi pi-check premium-check-icon"
-                aria-label="Incluido en el plan premium"
+                :aria-label="$t('subscription.includedPremiumAria')"
             ></i>
           </div>
         </div>
@@ -186,27 +160,24 @@
     <section
         v-if="currentPlan !== 'Premium'"
         class="upgrade-banner"
-        aria-label="Mensaje para actualizar plan"
+        :aria-label="$t('subscription.upgradeBannerAria')"
     >
       <div class="upgrade-message">
         <i class="pi pi-shield" aria-hidden="true"></i>
 
         <div>
-          <h2>Usted cuenta con el plan básico.</h2>
+          <h2>{{ $t('subscription.basicBannerTitle') }}</h2>
 
-          <p>
-            Cambie su plan a Premium para acceder a todos los beneficios
-            disponibles.
-          </p>
+          <p>{{ $t('subscription.basicBannerDescription') }}</p>
         </div>
       </div>
 
       <pv-button
-          label="Mejorar ahora"
+          :label="$t('subscription.upgradeNow')"
           icon="pi pi-arrow-right"
           icon-pos="right"
           class="banner-button"
-          aria-label="Mejorar ahora al plan premium"
+          :aria-label="$t('subscription.upgradeNowAria')"
           @click="upgradePlan"
       />
     </section>
@@ -224,39 +195,47 @@ export default {
     return {
       logo: heraLogo,
 
+      currentPlan: 'Basic',
+
       planFeatures: [
         {
-          name: 'Resumen de consumo',
+          name: 'subscription.features.consumptionSummary',
           icon: 'pi pi-chart-bar',
           basic: true,
         },
         {
-          name: 'Notificaciones inteligentes',
+          name: 'subscription.features.smartNotifications',
           icon: 'pi pi-bell',
           basic: true,
         },
         {
-          name: 'Control de dispositivos',
+          name: 'subscription.features.deviceControl',
           icon: 'pi pi-mobile',
           basic: true,
         },
         {
-          name: 'Rutinas automatizadas',
+          name: 'subscription.features.automatedRoutines',
           icon: 'pi pi-calendar',
           basic: false,
         },
         {
-          name: 'Análisis avanzado de consumo',
+          name: 'subscription.features.advancedAnalytics',
           icon: 'pi pi-bolt',
           basic: false,
         },
         {
-          name: 'Soporte prioritario',
+          name: 'subscription.features.prioritySupport',
           icon: 'pi pi-shield',
           basic: false,
         },
       ],
     };
+  },
+
+  computed: {
+    currentPlanKey() {
+      return this.currentPlan.toLowerCase();
+    },
   },
 };
 </script>

@@ -8,14 +8,36 @@ const props = defineProps({
 
 const { t } = useI18n();
 
-const connectivityLabel = computed(() => t(`cameras.connectivity.${props.camera.connectivityStatus}`));
-const operationalLabel = computed(() => t(`cameras.operational.${props.camera.operationalStatus}`));
-const connectivitySeverity = computed(() => props.camera.connectivityStatus === 'online' ? 'success' : 'secondary');
+const cameraNameLabel = computed(() => {
+  const cameraNames = {
+    1: t('monitoring.cameras.camera1.name'),
+    2: t('monitoring.cameras.camera2.name'),
+    3: t('monitoring.cameras.camera3.name')
+  };
+
+  return cameraNames[props.camera.id] || props.camera.name;
+});
+
+const connectivityLabel = computed(() =>
+    t(`cameras.connectivity.${props.camera.connectivityStatus}`)
+);
+
+const operationalLabel = computed(() =>
+    t(`cameras.operational.${props.camera.operationalStatus}`)
+);
+
+const connectivitySeverity = computed(() =>
+    props.camera.connectivityStatus === 'online' ? 'success' : 'secondary'
+);
+
 const operationalSeverity = computed(() => {
   switch (props.camera.operationalStatus) {
-    case 'alert': return 'danger';
-    case 'normal': return 'success';
-    default: return 'secondary';
+    case 'alert':
+      return 'danger';
+    case 'normal':
+      return 'success';
+    default:
+      return 'secondary';
   }
 });
 </script>
@@ -24,26 +46,49 @@ const operationalSeverity = computed(() => {
   <pv-card class="camera-card">
     <template #title>
       <div class="flex justify-content-between align-items-center">
-        <span>{{ camera.name }}</span>
-        <pv-tag :value="connectivityLabel" :severity="connectivitySeverity" />
+        <span>{{ cameraNameLabel }}</span>
+        <pv-tag
+            :value="connectivityLabel"
+            :severity="connectivitySeverity"
+        />
       </div>
     </template>
+
     <template #content>
       <div class="snapshot-frame">
-        <img v-if="camera.snapshotUrl" :src="camera.snapshotUrl" :alt="camera.name" class="snapshot-img" />
+        <img
+            v-if="camera.snapshotUrl"
+            :src="camera.snapshotUrl"
+            :alt="cameraNameLabel"
+            class="snapshot-img"
+        />
+
         <div v-else class="snapshot-placeholder">
           <i class="pi pi-video" style="font-size: 3rem"></i>
         </div>
-        <span class="timestamp">{{ camera.lastActivityAt }}</span>
+
+        <span class="timestamp">
+          {{ camera.lastActivityAt }}
+        </span>
       </div>
+
       <div class="mt-3">
         <div class="flex align-items-center mb-2">
           <i class="pi pi-shield mr-2"></i>
-          <span>{{ t('cameras.status') }}:&nbsp;</span>
-          <pv-tag :value="operationalLabel" :severity="operationalSeverity" />
+
+          <span>
+            {{ t('cameras.status') }}:&nbsp;
+          </span>
+
+          <pv-tag
+              :value="operationalLabel"
+              :severity="operationalSeverity"
+          />
         </div>
+
         <div class="text-sm text-secondary">
-          {{ t('cameras.last-activity') }}: {{ camera.lastActivityAt || t('cameras.unknown') }}
+          {{ t('cameras.last-activity') }}:
+          {{ camera.lastActivityAt || t('cameras.unknown') }}
         </div>
       </div>
     </template>
@@ -54,6 +99,7 @@ const operationalSeverity = computed(() => {
 .camera-card {
   height: 100%;
 }
+
 .snapshot-frame {
   position: relative;
   background: #111;
@@ -64,14 +110,17 @@ const operationalSeverity = computed(() => {
   align-items: center;
   justify-content: center;
 }
+
 .snapshot-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .snapshot-placeholder {
   color: rgba(255, 255, 255, 0.4);
 }
+
 .timestamp {
   position: absolute;
   bottom: 6px;

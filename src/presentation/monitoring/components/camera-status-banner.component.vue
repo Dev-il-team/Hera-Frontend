@@ -1,3 +1,9 @@
+<script setup>
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+</script>
+
 <template>
 
   <div class="status-banner">
@@ -9,11 +15,11 @@
       <div>
 
         <h3>
-          Cámara 3 activa
+          {{ t('monitoring.activeCamera') }}
         </h3>
 
         <p>
-          Transmisión en vivo mostrando el estado capturado.
+          {{ t('monitoring.activeCameraDescription') }}
         </p>
 
       </div>

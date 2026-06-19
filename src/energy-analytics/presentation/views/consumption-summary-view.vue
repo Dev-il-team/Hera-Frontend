@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 import SummaryCardComponent from '../components/summary-card.component.vue';
 import ConsumptionChartComponent from '../components/consumption-chart.component.vue';
@@ -9,32 +10,34 @@ import ConsumptionAlertComponent from '../components/consumption-alert.component
 
 const selectedMonth = ref('may-2025');
 
-const monthOptions = [
-  { label: 'Mayo 2025', value: 'may-2025' },
-  { label: 'Abril 2025', value: 'apr-2025' },
-  { label: 'Marzo 2025', value: 'mar-2025' }
-];
+const { t } = useI18n();
 
-const monthlyData = {
+const monthOptions = computed(() => [
+  { label: t('consumptionSummary.months.may2025'), value: 'may-2025' },
+  { label: t('consumptionSummary.months.april2025'), value: 'apr-2025' },
+  { label: t('consumptionSummary.months.march2025'), value: 'mar-2025' }
+]);
+
+const monthlyData = computed(() => ({
   'may-2025': {
     consumption: '156.4 kWh',
     cost: 'S/ 78.20',
     average: '5.05 kWh',
-    remainingDays: '12 días',
-    comparison: '+8.5% vs abril 2025',
-    costComparison: '+6.3% vs abril 2025',
-    averageComparison: '+0.5 kWh vs abril 2025',
-    period: 'Periodo: 1 - 31 May 2025',
+    remainingDays: t('consumptionSummary.data.may.remainingDays'),
+    comparison: t('consumptionSummary.data.may.comparison'),
+    costComparison: t('consumptionSummary.data.may.costComparison'),
+    averageComparison: t('consumptionSummary.data.may.averageComparison'),
+    period: t('consumptionSummary.data.may.period'),
     chartValues: [13, 19, 14, 18, 15, 11, 13],
-    highestDay: '19 de mayo',
+    highestDay: t('consumptionSummary.data.may.highestDay'),
     highestValue: '19 kWh',
     devices: [
-      { name: 'Aire acondicionado', consumption: '48.2 kWh', percentage: 31, icon: 'pi pi-sun' },
-      { name: 'Refrigeradora', consumption: '36.7 kWh', percentage: 23, icon: 'pi pi-box' },
-      { name: 'Lavadora', consumption: '22.4 kWh', percentage: 14, icon: 'pi pi-refresh' }
+      { name: t('consumptionSummary.data.may.devices.airConditioning'), consumption: '48.2 kWh', percentage: 31, icon: 'pi pi-sun' },
+      { name: t('consumptionSummary.data.may.devices.refrigerator'), consumption: '36.7 kWh', percentage: 23, icon: 'pi pi-box' },
+      { name: t('consumptionSummary.data.may.devices.washingMachine'), consumption: '22.4 kWh', percentage: 14, icon: 'pi pi-refresh' }
     ],
-    tip: 'El aire acondicionado representa el mayor consumo del mes. Reducir su uso 1 hora diaria podría ahorrar aproximadamente 9.6 kWh al mes.',
-    alert: 'Tu consumo aumentó 8.5% respecto al mes anterior.',
+    tip: t('consumptionSummary.data.may.tip'),
+    alert: t('consumptionSummary.data.may.alert'),
     previousConsumption: '144.1 kWh',
     currentConsumption: '156.4 kWh',
     difference: '+12.3 kWh'
@@ -85,34 +88,34 @@ const monthlyData = {
     currentConsumption: '148.9 kWh',
     difference: '+5.9 kWh'
   }
-};
+}));
 
-const currentData = computed(() => monthlyData[selectedMonth.value]);
+const currentData = computed(() => monthlyData.value[selectedMonth.value]);
 
 const summaryCards = computed(() => [
   {
-    title: 'Consumo total (kWh)',
+    title: t('consumptionSummary.cards.totalConsumption'),
     value: currentData.value.consumption,
     subtitle: currentData.value.comparison,
     icon: 'pi pi-bolt',
     color: '#3b82f6'
   },
   {
-    title: 'Gasto estimado',
+    title: t('consumptionSummary.cards.estimatedCost'),
     value: currentData.value.cost,
     subtitle: currentData.value.costComparison,
     icon: 'pi pi-wallet',
     color: '#22c55e'
   },
   {
-    title: 'Promedio diario',
+    title: t('consumptionSummary.cards.dailyAverage'),
     value: currentData.value.average,
     subtitle: currentData.value.averageComparison,
     icon: 'pi pi-chart-line',
     color: '#8b5cf6'
   },
   {
-    title: 'Días restantes',
+    title: t('consumptionSummary.cards.remainingDays'),
     value: currentData.value.remainingDays,
     subtitle: currentData.value.period,
     icon: 'pi pi-calendar',
@@ -128,10 +131,10 @@ const summaryCards = computed(() => [
     <div class="header-section">
 
       <div>
-        <h1>Resumen de consumo</h1>
+        <h1>{{ t('consumptionSummary.title') }}</h1>
 
         <p>
-          Visualiza tu consumo energético y estimación de gasto.
+          {{ t('consumptionSummary.description') }}
         </p>
       </div>
 
@@ -143,7 +146,7 @@ const summaryCards = computed(() => [
             option-label="label"
             option-value="value"
             class="month-dropdown"
-            aria-label="Seleccionar mes de consumo"
+            :aria-label="t('consumptionSummary.selectMonth')"
         />
 
       </div>
@@ -271,6 +274,15 @@ const summaryCards = computed(() => [
 
   .header-section h1 {
     font-size: 2rem;
+  }
+
+  .header-actions,
+  .month-dropdown {
+    width: 100%;
+  }
+
+  .month-dropdown {
+    min-width: 100%;
   }
 
 }

@@ -147,5 +147,179 @@
       "energy": "Energía",
       "automation": "Automatización"
     }
+  },
+  "dashboard": {
+    "greeting": "Hola, bienvenido de vuelta 👋",
+    "title": "Dashboard",
+    "description": "Resumen del estado actual de tu hogar inteligente en tiempo real.",
+    "lastUpdate": "Última actualización",
+    "todayTime": "Hoy, 10:30 AM",
+    "deviceConsumption": "Consumo por dispositivo",
+    "total": "Total",
+    "device": "Dispositivo",
+    "consumption": "Consumo (kWh)",
+    "percentage": "% del total",
+    "viewAllDevices": "Ver todos los dispositivos",
+    "lightsOn": "Cantidad de focos encendidos",
+    "plugsUsed": "Cantidad de enchufes siendo usados",
+    "currentlyActive": "Activos actualmente",
+    "devices": {
+      "refrigerator": "Refrigerador",
+      "airConditioner": "Aire acondicionado",
+      "television": "Televisor",
+      "washingMachine": "Lavadora",
+      "lighting": "Iluminación",
+      "microwave": "Microondas",
+      "computer": "Computadora",
+      "others": "Otros"
+    }
+  },
+  "consumptionSummary": {
+    "title": "Resumen de consumo",
+    "description": "Visualiza tu consumo energético y estimación de gasto.",
+    "selectMonth": "Seleccionar mes de consumo",
+    "months": {
+      "may2025": "Mayo 2025",
+      "april2025": "Abril 2025",
+      "march2025": "Marzo 2025"
+    },
+    "cards": {
+      "totalConsumption": "Consumo total (kWh)",
+      "estimatedCost": "Gasto estimado",
+      "dailyAverage": "Promedio diario",
+      "remainingDays": "Días restantes"
+    },
+    "chart": {
+      "title": "Consumo total (kWh)",
+      "daily": "Diario",
+      "datasetLabel": "Consumo kWh",
+      "highestConsumption": "Tu consumo más alto fue el {day} con {value}."
+    },
+    "devices": {
+      "title": "Consumo por dispositivo",
+      "subtitle": "Top dispositivos del mes"
+    },
+    "tip": {
+      "title": "Recomendación de ahorro"
+    },
+    "alert": {
+      "title": "Alerta de consumo",
+      "previousMonth": "Mes anterior",
+      "currentMonth": "Mes actual",
+      "difference": "Diferencia",
+      "footer": "Revisa dispositivos de alto consumo para optimizar energía."
+    },
+    "data": {
+      "may": {
+        "remainingDays": "12 días",
+        "comparison": "+8.5% vs abril 2025",
+        "costComparison": "+6.3% vs abril 2025",
+        "averageComparison": "+0.5 kWh vs abril 2025",
+        "period": "Periodo: 1 - 31 May 2025",
+        "highestDay": "19 de mayo",
+        "tip": "El aire acondicionado representa el mayor consumo del mes. Reducir su uso 1 hora diaria podría ahorrar aproximadamente 9.6 kWh al mes.",
+        "alert": "Tu consumo aumentó 8.5% respecto al mes anterior.",
+        "devices": {
+          "airConditioning": "Aire acondicionado",
+          "refrigerator": "Refrigeradora",
+          "washingMachine": "Lavadora"
+        }
+      }
+    }
+  },
+  "monitoring": {
+    "title": "Dispositivo: Cámaras de seguridad",
+    "subtitle": "Selecciona una cámara para ver su transmisión en vivo.",
+    "viewStream": "Ver transmisión",
+    "viewStreamAria": "Ver transmisión de cámara",
+    "live": "EN VIVO",
+    "livePlayer": "Reproductor en vivo",
+    "capturedStatus": "Estado capturado",
+    "lastUpdate": "Última actualización: hace unos segundos.",
+    "activeCamera": "Cámara activa",
+    "activeCameraDescription": "Transmisión en vivo mostrando el estado capturado.",
+    "status": {
+      "online": "En línea"
+    },
+    "cameras": {
+      "camera1": {
+        "name": "Cámara 1 - Sala",
+        "location": "Sala",
+        "capturedStatus": "Ambiente estable en la sala."
+      },
+      "camera2": {
+        "name": "Cámara 2 - Comedor",
+        "location": "Comedor",
+        "capturedStatus": "Actividad normal en el comedor."
+      },
+      "camera3": {
+        "name": "Cámara 3 - Entrada",
+        "location": "Entrada",
+        "capturedStatus": "Movimiento detectado en la entrada."
+      }
+    }
+  },
+  "subscription": {
+    "eyebrow": "Gestión de Suscripciones",
+    "title": "Planes de suscripción",
+    "description": "Consulta tu plan actual, compara los beneficios disponibles y elige la mejor opción para gestionar tu hogar inteligente con Hera.",
+
+    "currentPlanTag": "Plan actual: {plan}",
+    "currentPlanAria": "Plan actual básico",
+    "availablePlansAria": "Planes disponibles",
+
+    "currentPlanLabel": "Plan actual",
+
+    "plans": {
+      "basic": "Básico",
+      "premium": "Premium"
+    },
+
+    "basicDescription": "Funciones esenciales para monitorear y administrar tu hogar inteligente.",
+    "premiumDescription": "Más automatización, análisis avanzado y soporte prioritario para aprovechar al máximo Hera.",
+
+    "perMonth": "/ mes",
+
+    "basicPriceAria": "Precio del plan básico",
+    "premiumPriceAria": "Precio del plan premium",
+
+    "activePlan": "Plan activo",
+    "activePlanAria": "El plan básico está activo",
+
+    "recommended": "Recomendado",
+
+    "premiumLogoAlt": "Logo Hera Premium",
+
+    "upgradeToPremium": "Mejorar a Premium",
+    "upgradeToPremiumAria": "Mejorar al plan premium",
+
+    "comparisonEyebrow": "Comparación",
+    "comparisonTitle": "Beneficios por plan",
+    "scenario": "Escenario 1: el usuario consulta los planes disponibles y sus beneficios.",
+
+    "comparisonAria": "Comparación de beneficios entre plan básico y premium",
+
+    "benefit": "Beneficio",
+
+    "includedBasicAria": "Incluido en el plan básico",
+    "notIncludedBasicAria": "No incluido en el plan básico",
+    "includedPremiumAria": "Incluido en el plan premium",
+
+    "upgradeBannerAria": "Mensaje para actualizar plan",
+
+    "basicBannerTitle": "Usted cuenta con el plan básico.",
+    "basicBannerDescription": "Cambie su plan a Premium para acceder a todos los beneficios disponibles.",
+
+    "upgradeNow": "Mejorar ahora",
+    "upgradeNowAria": "Mejorar ahora al plan premium",
+
+    "features": {
+      "consumptionSummary": "Resumen de consumo",
+      "smartNotifications": "Notificaciones inteligentes",
+      "deviceControl": "Control de dispositivos",
+      "automatedRoutines": "Rutinas automatizadas",
+      "advancedAnalytics": "Análisis avanzado de consumo",
+      "prioritySupport": "Soporte prioritario"
+    }
   }
 }

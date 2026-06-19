@@ -1,4 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
 defineProps({
   camera: {
     type: Object,
@@ -45,10 +49,10 @@ const selectCamera = (camera) => {
       >
 
       <pv-button
-          label="Ver transmisión"
+          :label="t('monitoring.viewStream')"
           icon="pi pi-eye"
           class="view-button"
-          aria-label="Ver transmisión de cámara"
+          :aria-label="t('monitoring.viewStreamAria')"
           @click="selectCamera(camera)"
       />
 

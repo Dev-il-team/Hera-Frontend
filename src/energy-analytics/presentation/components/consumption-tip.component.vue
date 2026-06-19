@@ -1,4 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
 defineProps({
   tip: {
     type: String,
@@ -16,7 +20,7 @@ defineProps({
         </div>
 
         <div>
-          <h2>Recomendación de ahorro</h2>
+          <h2>{{ t('consumptionSummary.tip.title') }}</h2>
 
           <p>
             {{ tip }}
