@@ -1,13 +1,13 @@
 <script setup>
 const devices = [
-  { name: 'Refrigerador', icon: 'pi pi-mobile', consumption: 18.7, percentage: 23.8, color: '#2f80ed' },
-  { name: 'Aire acondicionado', icon: 'pi pi-desktop', consumption: 16.3, percentage: 20.7, color: '#27ae60' },
-  { name: 'Televisor', icon: 'pi pi-tv', consumption: 11.8, percentage: 15.0, color: '#f2c94c' },
-  { name: 'Lavadora', icon: 'pi pi-box', consumption: 7.6, percentage: 9.7, color: '#9b51e0' },
-  { name: 'Iluminación', icon: 'pi pi-lightbulb', consumption: 6.4, percentage: 8.1, color: '#f97316' },
-  { name: 'Microondas', icon: 'pi pi-tablet', consumption: 3.5, percentage: 4.5, color: '#56ccf2' },
-  { name: 'Computadora', icon: 'pi pi-desktop', consumption: 2.9, percentage: 3.7, color: '#eb5757' },
-  { name: 'Otros', icon: 'pi pi-ellipsis-h', consumption: 11.4, percentage: 14.5, color: '#9ca3af' }
+  { name: 'dashboard.devices.refrigerator', icon: 'pi pi-mobile', consumption: 18.7, percentage: 23.8, color: '#2f80ed' },
+  { name: 'dashboard.devices.airConditioner', icon: 'pi pi-desktop', consumption: 16.3, percentage: 20.7, color: '#27ae60' },
+  { name: 'dashboard.devices.television', icon: 'pi pi-tv', consumption: 11.8, percentage: 15.0, color: '#f2c94c' },
+  { name: 'dashboard.devices.washingMachine', icon: 'pi pi-box', consumption: 7.6, percentage: 9.7, color: '#9b51e0' },
+  { name: 'dashboard.devices.lighting', icon: 'pi pi-lightbulb', consumption: 6.4, percentage: 8.1, color: '#f97316' },
+  { name: 'dashboard.devices.microwave', icon: 'pi pi-tablet', consumption: 3.5, percentage: 4.5, color: '#56ccf2' },
+  { name: 'dashboard.devices.computer', icon: 'pi pi-desktop', consumption: 2.9, percentage: 3.7, color: '#eb5757' },
+  { name: 'dashboard.devices.others', icon: 'pi pi-ellipsis-h', consumption: 11.4, percentage: 14.5, color: '#9ca3af' }
 ]
 
 const summaryCards = [
@@ -82,7 +82,7 @@ const summaryCards = [
             <span class="device-name" role="cell">
               <span class="color-dot" :style="{ backgroundColor: device.color }"></span>
               <i :class="device.icon" aria-hidden="true"></i>
-              {{ device.name }}
+              {{ $t(device.name) }}
             </span>
             <span role="cell">{{ device.consumption }}</span>
             <span role="cell">{{ device.percentage }}%</span>

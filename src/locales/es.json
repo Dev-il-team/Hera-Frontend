@@ -162,7 +162,17 @@
     "viewAllDevices": "Ver todos los dispositivos",
     "lightsOn": "Cantidad de focos encendidos",
     "plugsUsed": "Cantidad de enchufes siendo usados",
-    "currentlyActive": "Activos actualmente"
+    "currentlyActive": "Activos actualmente",
+    "devices": {
+      "refrigerator": "Refrigerador",
+      "airConditioner": "Aire acondicionado",
+      "television": "Televisor",
+      "washingMachine": "Lavadora",
+      "lighting": "Iluminación",
+      "microwave": "Microondas",
+      "computer": "Computadora",
+      "others": "Otros"
+    }
   },
   "consumptionSummary": {
     "title": "Resumen de consumo",

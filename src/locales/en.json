@@ -162,7 +162,17 @@
     "viewAllDevices": "View all devices",
     "lightsOn": "Lights currently on",
     "plugsUsed": "Plugs currently in use",
-    "currentlyActive": "Currently active"
+    "currentlyActive": "Currently active",
+    "devices": {
+      "refrigerator": "Refrigerator",
+      "airConditioner": "Air conditioner",
+      "television": "Television",
+      "washingMachine": "Washing machine",
+      "lighting": "Lighting",
+      "microwave": "Microwave",
+      "computer": "Computer",
+      "others": "Others"
+    }
   },
   "consumptionSummary": {
     "title": "Consumption Summary",
