@@ -50,12 +50,13 @@ const formatNextExecution = (iso) => {
 
     <h2>{{ t('routines.my-routines') }}</h2>
 
-    <pv-data-table
-        :value="routines"
-        :loading="!routinesLoaded"
-        striped-rows
-        table-style="min-width: 50rem"
-    >
+    <div class="routine-table-wrapper">
+      <pv-data-table
+          :value="routines"
+          :loading="!routinesLoaded"
+          striped-rows
+          table-style="min-width: 50rem"
+      >
       <pv-column field="name" :header="t('routines.col.name')" sortable />
       <pv-column field="description" :header="t('routines.col.description')" />
       <pv-column :header="t('routines.col.trigger')">
@@ -82,6 +83,9 @@ const formatNextExecution = (iso) => {
       </pv-column>
     </pv-data-table>
 
+
+    </div>
+
     <pv-card class="mt-4 banner">
       <template #content>
         <div class="flex align-items-center">
@@ -103,5 +107,9 @@ const formatNextExecution = (iso) => {
 <style scoped>
 .banner {
   border-left: 4px solid var(--primary-color);
+}
+
+.routine-table-wrapper {
+  overflow-x: auto;
 }
 </style>
