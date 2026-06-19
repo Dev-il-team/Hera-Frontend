@@ -227,6 +227,26 @@
     "capturedStatus": "Captured Status",
     "lastUpdate": "Last update: a few seconds ago.",
     "activeCamera": "Active Camera",
-    "activeCameraDescription": "Live stream showing the captured status."
+    "activeCameraDescription": "Live stream showing the captured status.",
+    "status": {
+      "online": "Online"
+    },
+    "cameras": {
+      "camera1": {
+        "name": "Camera 1 - Living Room",
+        "location": "Living Room",
+        "capturedStatus": "Stable environment in the living room."
+      },
+      "camera2": {
+        "name": "Camera 2 - Dining Room",
+        "location": "Dining Room",
+        "capturedStatus": "Normal activity in the dining room."
+      },
+      "camera3": {
+        "name": "Camera 3 - Entrance",
+        "location": "Entrance",
+        "capturedStatus": "Motion detected at the entrance."
+      }
+    }
   }
 }

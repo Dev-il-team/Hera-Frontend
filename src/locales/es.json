@@ -227,6 +227,26 @@
     "capturedStatus": "Estado capturado",
     "lastUpdate": "Última actualización: hace unos segundos.",
     "activeCamera": "Cámara activa",
-    "activeCameraDescription": "Transmisión en vivo mostrando el estado capturado."
+    "activeCameraDescription": "Transmisión en vivo mostrando el estado capturado.",
+    "status": {
+      "online": "En línea"
+    },
+    "cameras": {
+      "camera1": {
+        "name": "Cámara 1 - Sala",
+        "location": "Sala",
+        "capturedStatus": "Ambiente estable en la sala."
+      },
+      "camera2": {
+        "name": "Cámara 2 - Comedor",
+        "location": "Comedor",
+        "capturedStatus": "Actividad normal en el comedor."
+      },
+      "camera3": {
+        "name": "Cámara 3 - Entrada",
+        "location": "Entrada",
+        "capturedStatus": "Movimiento detectado en la entrada."
+      }
+    }
   }
 }
