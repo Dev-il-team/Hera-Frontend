@@ -258,5 +258,68 @@
         "capturedStatus": "Motion detected at the entrance."
       }
     }
+  },
+  "subscription": {
+    "eyebrow": "Subscription Management",
+    "title": "Subscription Plans",
+    "description": "Check your current plan, compare available benefits and choose the best option to manage your smart home with Hera.",
+
+    "currentPlanTag": "Current plan: {plan}",
+    "currentPlanAria": "Current basic plan",
+    "availablePlansAria": "Available plans",
+
+    "currentPlanLabel": "Current Plan",
+
+    "plans": {
+      "basic": "Basic",
+      "premium": "Premium"
+    },
+
+    "basicDescription": "Essential features to monitor and manage your smart home.",
+    "premiumDescription": "More automation, advanced analytics and priority support to get the most out of Hera.",
+
+    "perMonth": "/ month",
+
+    "basicPriceAria": "Basic plan price",
+    "premiumPriceAria": "Premium plan price",
+
+    "activePlan": "Active plan",
+    "activePlanAria": "The basic plan is active",
+
+    "recommended": "Recommended",
+
+    "premiumLogoAlt": "Hera Premium Logo",
+
+    "upgradeToPremium": "Upgrade to Premium",
+    "upgradeToPremiumAria": "Upgrade to premium plan",
+
+    "comparisonEyebrow": "Comparison",
+    "comparisonTitle": "Plan Benefits",
+    "scenario": "Scenario 1: the user reviews available plans and their benefits.",
+
+    "comparisonAria": "Comparison of benefits between basic and premium plans",
+
+    "benefit": "Benefit",
+
+    "includedBasicAria": "Included in basic plan",
+    "notIncludedBasicAria": "Not included in basic plan",
+    "includedPremiumAria": "Included in premium plan",
+
+    "upgradeBannerAria": "Upgrade plan message",
+
+    "basicBannerTitle": "You are currently using the basic plan.",
+    "basicBannerDescription": "Upgrade to Premium to access all available benefits.",
+
+    "upgradeNow": "Upgrade now",
+    "upgradeNowAria": "Upgrade now to premium plan",
+
+    "features": {
+      "consumptionSummary": "Consumption Summary",
+      "smartNotifications": "Smart Notifications",
+      "deviceControl": "Device Control",
+      "automatedRoutines": "Automated Routines",
+      "advancedAnalytics": "Advanced Consumption Analytics",
+      "prioritySupport": "Priority Support"
+    }
   }
 }

@@ -258,5 +258,68 @@
         "capturedStatus": "Movimiento detectado en la entrada."
       }
     }
+  },
+  "subscription": {
+    "eyebrow": "Gestión de Suscripciones",
+    "title": "Planes de suscripción",
+    "description": "Consulta tu plan actual, compara los beneficios disponibles y elige la mejor opción para gestionar tu hogar inteligente con Hera.",
+
+    "currentPlanTag": "Plan actual: {plan}",
+    "currentPlanAria": "Plan actual básico",
+    "availablePlansAria": "Planes disponibles",
+
+    "currentPlanLabel": "Plan actual",
+
+    "plans": {
+      "basic": "Básico",
+      "premium": "Premium"
+    },
+
+    "basicDescription": "Funciones esenciales para monitorear y administrar tu hogar inteligente.",
+    "premiumDescription": "Más automatización, análisis avanzado y soporte prioritario para aprovechar al máximo Hera.",
+
+    "perMonth": "/ mes",
+
+    "basicPriceAria": "Precio del plan básico",
+    "premiumPriceAria": "Precio del plan premium",
+
+    "activePlan": "Plan activo",
+    "activePlanAria": "El plan básico está activo",
+
+    "recommended": "Recomendado",
+
+    "premiumLogoAlt": "Logo Hera Premium",
+
+    "upgradeToPremium": "Mejorar a Premium",
+    "upgradeToPremiumAria": "Mejorar al plan premium",
+
+    "comparisonEyebrow": "Comparación",
+    "comparisonTitle": "Beneficios por plan",
+    "scenario": "Escenario 1: el usuario consulta los planes disponibles y sus beneficios.",
+
+    "comparisonAria": "Comparación de beneficios entre plan básico y premium",
+
+    "benefit": "Beneficio",
+
+    "includedBasicAria": "Incluido en el plan básico",
+    "notIncludedBasicAria": "No incluido en el plan básico",
+    "includedPremiumAria": "Incluido en el plan premium",
+
+    "upgradeBannerAria": "Mensaje para actualizar plan",
+
+    "basicBannerTitle": "Usted cuenta con el plan básico.",
+    "basicBannerDescription": "Cambie su plan a Premium para acceder a todos los beneficios disponibles.",
+
+    "upgradeNow": "Mejorar ahora",
+    "upgradeNowAria": "Mejorar ahora al plan premium",
+
+    "features": {
+      "consumptionSummary": "Resumen de consumo",
+      "smartNotifications": "Notificaciones inteligentes",
+      "deviceControl": "Control de dispositivos",
+      "automatedRoutines": "Rutinas automatizadas",
+      "advancedAnalytics": "Análisis avanzado de consumo",
+      "prioritySupport": "Soporte prioritario"
+    }
   }
 }
