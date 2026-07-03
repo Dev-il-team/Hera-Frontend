@@ -1,26 +1,26 @@
 <script setup>
 const devices = [
-  { name: 'Refrigerador', icon: 'pi pi-mobile', consumption: 18.7, percentage: 23.8, color: '#2f80ed' },
-  { name: 'Aire acondicionado', icon: 'pi pi-desktop', consumption: 16.3, percentage: 20.7, color: '#27ae60' },
-  { name: 'Televisor', icon: 'pi pi-tv', consumption: 11.8, percentage: 15.0, color: '#f2c94c' },
-  { name: 'Lavadora', icon: 'pi pi-box', consumption: 7.6, percentage: 9.7, color: '#9b51e0' },
-  { name: 'Iluminación', icon: 'pi pi-lightbulb', consumption: 6.4, percentage: 8.1, color: '#f97316' },
-  { name: 'Microondas', icon: 'pi pi-tablet', consumption: 3.5, percentage: 4.5, color: '#56ccf2' },
-  { name: 'Computadora', icon: 'pi pi-desktop', consumption: 2.9, percentage: 3.7, color: '#eb5757' },
-  { name: 'Otros', icon: 'pi pi-ellipsis-h', consumption: 11.4, percentage: 14.5, color: '#9ca3af' }
+  { name: 'dashboard.devices.refrigerator', icon: 'pi pi-mobile', consumption: 18.7, percentage: 23.8, color: '#2f80ed' },
+  { name: 'dashboard.devices.airConditioner', icon: 'pi pi-desktop', consumption: 16.3, percentage: 20.7, color: '#27ae60' },
+  { name: 'dashboard.devices.television', icon: 'pi pi-tv', consumption: 11.8, percentage: 15.0, color: '#f2c94c' },
+  { name: 'dashboard.devices.washingMachine', icon: 'pi pi-box', consumption: 7.6, percentage: 9.7, color: '#9b51e0' },
+  { name: 'dashboard.devices.lighting', icon: 'pi pi-lightbulb', consumption: 6.4, percentage: 8.1, color: '#f97316' },
+  { name: 'dashboard.devices.microwave', icon: 'pi pi-tablet', consumption: 3.5, percentage: 4.5, color: '#56ccf2' },
+  { name: 'dashboard.devices.computer', icon: 'pi pi-desktop', consumption: 2.9, percentage: 3.7, color: '#eb5757' },
+  { name: 'dashboard.devices.others', icon: 'pi pi-ellipsis-h', consumption: 11.4, percentage: 14.5, color: '#9ca3af' }
 ]
 
 const summaryCards = [
   {
-    title: 'Cantidad de focos encendidos',
-    subtitle: 'Activos actualmente',
+    title: 'dashboard.lightsOn',
+    subtitle: 'dashboard.currentlyActive',
     value: 4,
     icon: 'pi pi-lightbulb',
     className: 'lights'
   },
   {
-    title: 'Cantidad de enchufes siendo usados',
-    subtitle: 'Activos actualmente',
+    title: 'dashboard.plugsUsed',
+    subtitle: 'dashboard.currentlyActive',
     value: 10,
     icon: 'pi pi-bolt',
     className: 'plugs'
@@ -32,18 +32,18 @@ const summaryCards = [
   <main class="dashboard-view" aria-labelledby="dashboard-title">
     <section class="dashboard-hero">
       <div>
-        <p class="hero-greeting">Hola, bienvenido de vuelta 👋</p>
-        <h1 id="dashboard-title">Dashboard</h1>
+        <p class="hero-greeting">{{ $t('dashboard.greeting') }}</p>
+        <h1 id="dashboard-title">{{ $t('dashboard.title') }}</h1>
         <p class="hero-description">
-          Resumen del estado actual de tu hogar inteligente en tiempo real.
+          {{ $t('dashboard.description') }}
         </p>
       </div>
 
       <aside class="update-card" aria-label="Última actualización del dashboard">
         <i class="pi pi-clock" aria-hidden="true"></i>
         <div>
-          <span>Última actualización</span>
-          <strong>Hoy, 10:30 AM</strong>
+          <span>{{ $t('dashboard.lastUpdate') }}</span>
+          <strong>{{ $t('dashboard.todayTime') }}</strong>
         </div>
         <span class="status-dot" aria-label="Estado conectado"></span>
       </aside>
@@ -51,7 +51,9 @@ const summaryCards = [
 
     <section class="consumption-card" aria-labelledby="consumption-title">
       <div class="card-header">
-        <h2 id="consumption-title">Consumo por dispositivo</h2>
+        <h2 id="consumption-title">
+          {{ $t('dashboard.deviceConsumption') }}
+        </h2>
         <i class="pi pi-info-circle" aria-hidden="true"></i>
       </div>
 
@@ -66,9 +68,9 @@ const summaryCards = [
 
         <div class="device-table" role="table" aria-label="Tabla de consumo por dispositivo">
           <div class="table-row table-head" role="row">
-            <span role="columnheader">Dispositivo</span>
-            <span role="columnheader">Consumo (kWh)</span>
-            <span role="columnheader">% del total</span>
+            <span role="columnheader">{{ $t('dashboard.device') }}</span>
+            <span role="columnheader">{{ $t('dashboard.consumption') }}</span>
+            <span role="columnheader">{{ $t('dashboard.percentage') }}</span>
           </div>
 
           <div
@@ -80,14 +82,14 @@ const summaryCards = [
             <span class="device-name" role="cell">
               <span class="color-dot" :style="{ backgroundColor: device.color }"></span>
               <i :class="device.icon" aria-hidden="true"></i>
-              {{ device.name }}
+              {{ $t(device.name) }}
             </span>
             <span role="cell">{{ device.consumption }}</span>
             <span role="cell">{{ device.percentage }}%</span>
           </div>
 
-          <button class="devices-link" type="button" aria-label="Ver todos los dispositivos">
-            Ver todos los dispositivos
+          <button class="devices-link" type="button">
+            {{ $t('dashboard.viewAllDevices') }}
             <i class="pi pi-arrow-right" aria-hidden="true"></i>
           </button>
         </div>
@@ -106,8 +108,8 @@ const summaryCards = [
         </div>
 
         <div class="summary-info">
-          <h3>{{ card.title }}</h3>
-          <p>{{ card.subtitle }}</p>
+          <h3>{{ $t(card.title) }}</h3>
+          <p>{{ $t(card.subtitle) }}</p>
         </div>
 
         <strong class="summary-value">{{ card.value }}</strong>

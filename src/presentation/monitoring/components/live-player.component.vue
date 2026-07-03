@@ -1,12 +1,14 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 defineProps({
   camera: {
     type: Object,
     required: true
   }
-})
-
+});
 </script>
 
 <template>
@@ -20,11 +22,11 @@ defineProps({
         <div class="live-title">
 
           <span class="live-badge">
-            EN VIVO
+            {{ t('monitoring.live') }}
           </span>
 
           <h2>
-            Reproductor en vivo - {{ camera.name }}
+            {{ t('monitoring.livePlayer') }} - {{ camera.name }}
           </h2>
 
         </div>
@@ -48,11 +50,11 @@ defineProps({
       <div class="player-details">
 
         <p>
-          Estado capturado: {{ camera.capturedStatus }}
+          {{ t('monitoring.capturedStatus') }}: {{ camera.capturedStatus }}
         </p>
 
         <span>
-          Última actualización: hace unos segundos.
+          {{ t('monitoring.lastUpdate') }}
         </span>
 
       </div>

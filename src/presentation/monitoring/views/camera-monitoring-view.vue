@@ -1,34 +1,37 @@
 <script setup>
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 import CameraCardComponent from '../components/camera-card.component.vue';
 import LivePlayerComponent from '../components/live-player.component.vue';
 import CameraStatusBannerComponent from '../components/camera-status-banner.component.vue';
 
+const { t } = useI18n();
+
 const cameras = [
   {
     id: 1,
-    name: 'Cámara 1 - Sala',
-    location: 'Sala',
+    name: t('monitoring.cameras.camera1.name'),
+    location: t('monitoring.cameras.camera1.location'),
     image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200',
-    status: 'En línea',
-    capturedStatus: 'Ambiente estable en la sala.'
+    status: t('monitoring.status.online'),
+    capturedStatus: t('monitoring.cameras.camera1.capturedStatus')
   },
   {
     id: 2,
-    name: 'Cámara 2 - Comedor',
-    location: 'Comedor',
+    name: t('monitoring.cameras.camera2.name'),
+    location: t('monitoring.cameras.camera2.location'),
     image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200',
-    status: 'En línea',
-    capturedStatus: 'Actividad normal en el comedor.'
+    status: t('monitoring.status.online'),
+    capturedStatus: t('monitoring.cameras.camera2.capturedStatus')
   },
   {
     id: 3,
-    name: 'Cámara 3 - Entrada',
-    location: 'Entrada',
+    name: t('monitoring.cameras.camera3.name'),
+    location: t('monitoring.cameras.camera3.location'),
     image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200',
-    status: 'En línea',
-    capturedStatus: 'Movimiento detectado en la entrada.'
+    status: t('monitoring.status.online'),
+    capturedStatus: t('monitoring.cameras.camera3.capturedStatus')
   }
 ];
 
@@ -43,10 +46,10 @@ const selectCamera = (camera) => {
   <section class="camera-monitoring-container">
 
     <div class="header-section">
-      <h1>Dispositivo: Cámaras de seguridad</h1>
+      <h1>{{ t('monitoring.title') }}</h1>
 
       <p>
-        Selecciona una cámara para ver su transmisión en vivo.
+        {{ t('monitoring.subtitle') }}
       </p>
     </div>
 

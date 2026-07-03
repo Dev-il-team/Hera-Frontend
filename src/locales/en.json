@@ -147,5 +147,179 @@
       "energy": "Energy",
       "automation": "Automation"
     }
+  },
+  "dashboard": {
+    "greeting": "Hello, welcome back 👋",
+    "title": "Dashboard",
+    "description": "Real-time summary of your smart home status.",
+    "lastUpdate": "Last update",
+    "todayTime": "Today, 10:30 AM",
+    "deviceConsumption": "Consumption by device",
+    "total": "Total",
+    "device": "Device",
+    "consumption": "Consumption (kWh)",
+    "percentage": "% of total",
+    "viewAllDevices": "View all devices",
+    "lightsOn": "Lights currently on",
+    "plugsUsed": "Plugs currently in use",
+    "currentlyActive": "Currently active",
+    "devices": {
+      "refrigerator": "Refrigerator",
+      "airConditioner": "Air conditioner",
+      "television": "Television",
+      "washingMachine": "Washing machine",
+      "lighting": "Lighting",
+      "microwave": "Microwave",
+      "computer": "Computer",
+      "others": "Others"
+    }
+  },
+  "consumptionSummary": {
+    "title": "Consumption Summary",
+    "description": "View your energy consumption and estimated cost.",
+    "selectMonth": "Select consumption month",
+    "months": {
+      "may2025": "May 2025",
+      "april2025": "April 2025",
+      "march2025": "March 2025"
+    },
+    "cards": {
+      "totalConsumption": "Total Consumption (kWh)",
+      "estimatedCost": "Estimated Cost",
+      "dailyAverage": "Daily Average",
+      "remainingDays": "Remaining Days"
+    },
+    "chart": {
+      "title": "Total Consumption (kWh)",
+      "daily": "Daily",
+      "datasetLabel": "Consumption kWh",
+      "highestConsumption": "Your highest consumption was on {day} with {value}."
+    },
+    "devices": {
+      "title": "Consumption by Device",
+      "subtitle": "Top devices this month"
+    },
+    "tip": {
+      "title": "Saving Recommendation"
+    },
+    "alert": {
+      "title": "Consumption Alert",
+      "previousMonth": "Previous Month",
+      "currentMonth": "Current Month",
+      "difference": "Difference",
+      "footer": "Review high-consumption devices to optimize energy usage."
+    },
+    "data": {
+      "may": {
+        "remainingDays": "12 days",
+        "comparison": "+8.5% vs April 2025",
+        "costComparison": "+6.3% vs April 2025",
+        "averageComparison": "+0.5 kWh vs April 2025",
+        "period": "Period: 1 - 31 May 2025",
+        "highestDay": "May 19",
+        "tip": "Air conditioning represents the highest consumption this month. Reducing its use by 1 hour per day could save approximately 9.6 kWh per month.",
+        "alert": "Your consumption increased by 8.5% compared to the previous month.",
+        "devices": {
+          "airConditioning": "Air Conditioning",
+          "refrigerator": "Refrigerator",
+          "washingMachine": "Washing Machine"
+        }
+      }
+    }
+  },
+  "monitoring": {
+    "title": "Device: Security Cameras",
+    "subtitle": "Select a camera to view its live stream.",
+    "viewStream": "View Stream",
+    "viewStreamAria": "View camera stream",
+    "live": "LIVE",
+    "livePlayer": "Live Player",
+    "capturedStatus": "Captured Status",
+    "lastUpdate": "Last update: a few seconds ago.",
+    "activeCamera": "Active Camera",
+    "activeCameraDescription": "Live stream showing the captured status.",
+    "status": {
+      "online": "Online"
+    },
+    "cameras": {
+      "camera1": {
+        "name": "Camera 1 - Living Room",
+        "location": "Living Room",
+        "capturedStatus": "Stable environment in the living room."
+      },
+      "camera2": {
+        "name": "Camera 2 - Dining Room",
+        "location": "Dining Room",
+        "capturedStatus": "Normal activity in the dining room."
+      },
+      "camera3": {
+        "name": "Camera 3 - Entrance",
+        "location": "Entrance",
+        "capturedStatus": "Motion detected at the entrance."
+      }
+    }
+  },
+  "subscription": {
+    "eyebrow": "Subscription Management",
+    "title": "Subscription Plans",
+    "description": "Check your current plan, compare available benefits and choose the best option to manage your smart home with Hera.",
+
+    "currentPlanTag": "Current plan: {plan}",
+    "currentPlanAria": "Current basic plan",
+    "availablePlansAria": "Available plans",
+
+    "currentPlanLabel": "Current Plan",
+
+    "plans": {
+      "basic": "Basic",
+      "premium": "Premium"
+    },
+
+    "basicDescription": "Essential features to monitor and manage your smart home.",
+    "premiumDescription": "More automation, advanced analytics and priority support to get the most out of Hera.",
+
+    "perMonth": "/ month",
+
+    "basicPriceAria": "Basic plan price",
+    "premiumPriceAria": "Premium plan price",
+
+    "activePlan": "Active plan",
+    "activePlanAria": "The basic plan is active",
+
+    "recommended": "Recommended",
+
+    "premiumLogoAlt": "Hera Premium Logo",
+
+    "upgradeToPremium": "Upgrade to Premium",
+    "upgradeToPremiumAria": "Upgrade to premium plan",
+
+    "comparisonEyebrow": "Comparison",
+    "comparisonTitle": "Plan Benefits",
+    "scenario": "Scenario 1: the user reviews available plans and their benefits.",
+
+    "comparisonAria": "Comparison of benefits between basic and premium plans",
+
+    "benefit": "Benefit",
+
+    "includedBasicAria": "Included in basic plan",
+    "notIncludedBasicAria": "Not included in basic plan",
+    "includedPremiumAria": "Included in premium plan",
+
+    "upgradeBannerAria": "Upgrade plan message",
+
+    "basicBannerTitle": "You are currently using the basic plan.",
+    "basicBannerDescription": "Upgrade to Premium to access all available benefits.",
+
+    "upgradeNow": "Upgrade now",
+    "upgradeNowAria": "Upgrade now to premium plan",
+
+    "features": {
+      "consumptionSummary": "Consumption Summary",
+      "smartNotifications": "Smart Notifications",
+      "deviceControl": "Device Control",
+      "automatedRoutines": "Automated Routines",
+      "advancedAnalytics": "Advanced Consumption Analytics",
+      "prioritySupport": "Priority Support"
+    }
   }
 }

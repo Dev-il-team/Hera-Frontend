@@ -64,4 +64,29 @@ const onClick = () => { if (route.value) router.push(route.value); };
 }
 .title { font-weight: 500; }
 .timestamp { white-space: nowrap; }
+
+@media screen and (max-width: 768px) {
+  .notification-item {
+    align-items: flex-start;
+  }
+
+  .timestamp {
+    white-space: normal;
+    text-align: right;
+    max-width: 7rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .notification-item {
+    flex-wrap: wrap;
+  }
+
+  .timestamp {
+    width: 100%;
+    max-width: none;
+    text-align: left;
+    margin-left: 52px;
+  }
+}
 </style>

@@ -1,4 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
 defineProps({
   devices: {
     type: Array,
@@ -11,8 +15,8 @@ defineProps({
   <pv-card class="device-card">
     <template #content>
       <div class="device-header">
-        <h2>Consumo por dispositivo</h2>
-        <span>Top dispositivos del mes</span>
+        <h2>{{ t('consumptionSummary.devices.title') }}</h2>
+        <span>{{ t('consumptionSummary.devices.subtitle') }}</span>
       </div>
 
       <div class="device-list">
