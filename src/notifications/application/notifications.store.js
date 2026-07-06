@@ -19,12 +19,21 @@ const useNotificationsStore = defineStore('notifications', () => {
     const unreadCount = computed(() => notifications.value.filter(n => !n.read).length);
 
     function fetchNotifications() {
-        api.getNotifications().then(response => {
-            notifications.value = NotificationAssembler.toEntitiesFromResponse(response);
-            notificationsLoaded.value = true;
-        }).catch(error => {
-            errors.value.push(error);
-        });
+        api.getNotifications()
+            .then(response => {
+                notifications.value = NotificationAssembler.toEntitiesFromResponse(response);
+                notificationsLoaded.value = true;
+            })
+            .catch(error => {
+                if (error.response?.status === 404) {
+                    notifications.value = [];
+                    notificationsLoaded.value = true;
+                    return;
+                }
+
+                errors.value.push(error);
+                notificationsLoaded.value = true;
+            });
     }
 
     function getNotificationById(id) {
