@@ -6,26 +6,26 @@ export class DeviceAssembler {
             id: resource.id,
             name: resource.name,
             type: resource.type,
-            room: resource.room,
-            status: resource.status,
-            energyConsumption: resource.energyConsumption
+            room: resource.room ?? resource.roomId ?? '',
+            status: resource.status ?? '',
+            energyConsumption: resource.energyConsumption ?? 0
         });
     }
 
     static toEntitiesFromResponse(response) {
-        return response.map(device =>
-            this.toEntityFromResource(device)
-        );
+        const resources = Array.isArray(response) ? response : (response?.devices ?? []);
+        return resources.map(device => this.toEntityFromResource(device));
     }
 
+    /**
+     * Maps to the backend contract: POST /devices expects
+     * { name: string, type: number, roomId: number }.
+     */
     static toResourceFromEntity(entity) {
         return {
-            id: entity.id,
             name: entity.name,
-            type: entity.type,
-            room: entity.room,
-            status: entity.status,
-            energyConsumption: entity.energyConsumption
+            type: Number(entity.type) || 0,
+            roomId: Number(entity.roomId ?? entity.room) || 0
         };
     }
 }

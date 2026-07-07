@@ -1,29 +1,42 @@
-import axios from 'axios';
+import { BaseApi } from '../../../shared/infrastructure/base-api.js';
+import { BaseEndpoint } from '../../../shared/infrastructure/base-endpoint.js';
 
-const http = axios.create({
-    baseURL: `${import.meta.env.VITE_HERA_API_URL}/api/v1`,
-    headers: {
-        'Content-Type': 'application/json'
+const devicesEndpointPath = import.meta.env.VITE_DEVICES_ENDPOINT_PATH ?? '/devices';
+
+/**
+ * Service for the Devices endpoints.
+ * Extends BaseApi so every request carries the JWT Bearer token
+ * and uses the normalized platform base URL.
+ *
+ * @class DeviceApiService
+ * @extends BaseApi
+ */
+export class DeviceApiService extends BaseApi {
+    #endpoint;
+
+    constructor() {
+        super();
+        this.#endpoint = new BaseEndpoint(this, devicesEndpointPath);
     }
-});
 
-export class DeviceApiService {
+    /** GET /api/v1/devices */
     async getAll() {
-        const response = await http.get('/devices');
+        const response = await this.#endpoint.getAll();
         return response.data;
     }
 
+    /** GET /api/v1/devices/{deviceId} */
+    async getById(id) {
+        const response = await this.#endpoint.getById(id);
+        return response.data;
+    }
+
+    /**
+     * POST /api/v1/devices — Link a new IoT device.
+     * @param {{name: string, type: number, roomId: number}} device
+     */
     async create(device) {
-        const response = await http.post('/devices', device);
+        const response = await this.#endpoint.create(device);
         return response.data;
-    }
-
-    async update(id, device) {
-        const response = await http.put(`/devices/${id}`, device);
-        return response.data;
-    }
-
-    async delete(id) {
-        await http.delete(`/devices/${id}`);
     }
 }

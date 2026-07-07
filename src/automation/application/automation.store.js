@@ -33,7 +33,10 @@ const useAutomationStore = defineStore('automation', () => {
     }
 
     function addRoutine(routine) {
-        return api.createRoutine(routine).then(response => {
+        // Map the rich Routine entity to the backend contract
+        // { name, scheduledTime, triggerType } before posting.
+        const resource = RoutineAssembler.toResourceFromEntity(routine);
+        return api.createRoutine(resource).then(response => {
             const resource = response.data;
             const newRoutine = RoutineAssembler.toEntityFromResource(resource);
             routines.value.push(newRoutine);

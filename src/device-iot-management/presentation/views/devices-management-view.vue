@@ -1,5 +1,7 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useToast } from 'primevue/usetoast';
 
 import Button from 'primevue/button';
 import Card from 'primevue/card';
@@ -7,90 +9,83 @@ import Column from 'primevue/column';
 import DataTable from 'primevue/datatable';
 import Dialog from 'primevue/dialog';
 import InputText from 'primevue/inputtext';
+import Select from 'primevue/select';
 
 import { DeviceApiService } from '../../infrastructure/services/device-api.service';
 import { DeviceAssembler } from '../../application/device.assembler';
+import useDeviceIotManagementStore from '../../application/device-iot-management.store.js';
 
+const { t } = useI18n();
+const toast = useToast();
 const deviceService = new DeviceApiService();
+const store = useDeviceIotManagementStore();
 
 const devices = ref([]);
-
 const deviceDialog = ref(false);
+const saving = ref(false);
 
-const editedDevice = ref({
-  id: null,
-  name: '',
-  type: '',
-  room: '',
-  status: '',
-  energyConsumption: 0
-});
+const editedDevice = ref({ name: '', type: 0, roomId: null });
+
+const deviceTypeOptions = computed(() => [
+  { label: t('rooms.device-type.sensor'),     value: 0 },
+  { label: t('rooms.device-type.light'),      value: 1 },
+  { label: t('rooms.device-type.thermostat'), value: 2 },
+  { label: t('rooms.device-type.plug'),       value: 3 },
+  { label: t('rooms.device-type.camera'),     value: 4 },
+  { label: t('rooms.device-type.other'),      value: 5 }
+]);
+
+const roomOptions = computed(() =>
+    store.rooms.map(r => ({ label: r.name, value: r.id }))
+);
+
+const isValid = computed(() =>
+    editedDevice.value.name.trim().length > 0 && editedDevice.value.roomId != null
+);
 
 const loadDevices = async () => {
   try {
-    const response = await deviceService.getAll();
-
-    devices.value =
-        DeviceAssembler.toEntitiesFromResponse(response);
+    const data = await deviceService.getAll();
+    devices.value = DeviceAssembler.toEntitiesFromResponse(data);
   } catch (error) {
     console.error('Error loading devices:', error);
   }
 };
 
 const openNew = () => {
-  editedDevice.value = {
-    id: null,
-    name: '',
-    type: '',
-    room: '',
-    status: '',
-    energyConsumption: 0
-  };
-
-  deviceDialog.value = true;
-};
-
-const editDevice = (device) => {
-  editedDevice.value = { ...device };
+  editedDevice.value = { name: '', type: 0, roomId: store.rooms[0]?.id ?? null };
   deviceDialog.value = true;
 };
 
 const saveDevice = async () => {
+  if (!isValid.value) return;
+  saving.value = true;
   try {
-    const payload =
-        DeviceAssembler.toResourceFromEntity(
-            editedDevice.value
-        );
-
-    if (editedDevice.value.id) {
-      await deviceService.update(
-          editedDevice.value.id,
-          payload
-      );
-    } else {
-      await deviceService.create(payload);
-    }
-
+    // Backend contract: POST /devices { name, type: number, roomId: number }
+    const payload = DeviceAssembler.toResourceFromEntity(editedDevice.value);
+    await deviceService.create(payload);
     await loadDevices();
-
     deviceDialog.value = false;
+    toast.add({ severity: 'success', summary: t('rooms.device-registered'), life: 3000 });
   } catch (error) {
-    console.error('Error saving device:', error);
-  }
-};
-
-const deleteDevice = async (id) => {
-  try {
-    await deviceService.delete(id);
-
-    await loadDevices();
-  } catch (error) {
-    console.error('Error deleting device:', error);
+    toast.add({
+      severity: 'error',
+      summary: t('errors.occurred'),
+      detail: error?.response?.data?.title
+          ?? error?.response?.data?.message
+          ?? error?.message,
+      life: 5000
+    });
+  } finally {
+    saving.value = false;
   }
 };
 
 onMounted(async () => {
-  await loadDevices();
+  await Promise.all([
+    loadDevices(),
+    store.fetchRooms().catch(() => {})
+  ]);
 });
 </script>
 
@@ -124,37 +119,21 @@ onMounted(async () => {
             dataKey="id"
         >
           <Column field="name" header="Name" />
-          <Column field="type" header="Type" />
-          <Column field="room" header="Room" />
+          <Column header="Type">
+            <template #body="slotProps">
+              {{ deviceTypeOptions.find(o => o.value === Number(slotProps.data.type))?.label ?? slotProps.data.type }}
+            </template>
+          </Column>
+          <Column header="Room">
+            <template #body="slotProps">
+              {{ roomOptions.find(o => o.value === Number(slotProps.data.room))?.label ?? slotProps.data.room }}
+            </template>
+          </Column>
           <Column field="status" header="Status" />
           <Column
               field="energyConsumption"
               header="Energy (kWh)"
           />
-
-          <Column header="Actions">
-            <template #body="slotProps">
-              <div class="actions">
-                <Button
-                    icon="pi pi-pencil"
-                    severity="warning"
-                    rounded
-                    text
-                    aria-label="Edit device"
-                    @click="editDevice(slotProps.data)"
-                />
-
-                <Button
-                    icon="pi pi-trash"
-                    severity="danger"
-                    rounded
-                    text
-                    aria-label="Delete device"
-                    @click="deleteDevice(slotProps.data.id)"
-                />
-              </div>
-            </template>
-          </Column>
         </DataTable>
       </template>
     </Card>
@@ -167,48 +146,43 @@ onMounted(async () => {
     >
       <div class="form-grid">
         <div class="field">
-          <label>Name</label>
+          <label for="device-name">Name</label>
 
           <InputText
+              id="device-name"
               v-model="editedDevice.name"
               fluid
           />
         </div>
 
         <div class="field">
-          <label>Type</label>
+          <label for="device-type">Type</label>
 
-          <InputText
+          <Select
+              id="device-type"
               v-model="editedDevice.type"
+              :options="deviceTypeOptions"
+              option-label="label"
+              option-value="value"
               fluid
           />
         </div>
 
         <div class="field">
-          <label>Room</label>
+          <label for="device-room">Room</label>
 
-          <InputText
-              v-model="editedDevice.room"
+          <Select
+              id="device-room"
+              v-model="editedDevice.roomId"
+              :options="roomOptions"
+              option-label="label"
+              option-value="value"
+              :placeholder="roomOptions.length ? undefined : t('rooms.empty')"
               fluid
           />
-        </div>
-
-        <div class="field">
-          <label>Status</label>
-
-          <InputText
-              v-model="editedDevice.status"
-              fluid
-          />
-        </div>
-
-        <div class="field">
-          <label>Energy Consumption</label>
-
-          <InputText
-              v-model="editedDevice.energyConsumption"
-              fluid
-          />
+          <small v-if="!roomOptions.length" class="text-secondary">
+            {{ t('rooms.empty') }}
+          </small>
         </div>
       </div>
 
@@ -223,6 +197,8 @@ onMounted(async () => {
         <Button
             label="Save"
             icon="pi pi-check"
+            :loading="saving"
+            :disabled="!isValid"
             @click="saveDevice"
         />
       </template>
@@ -257,11 +233,6 @@ onMounted(async () => {
 .devices-card {
   border-radius: 20px;
   background: #112240;
-}
-
-.actions {
-  display: flex;
-  gap: 0.5rem;
 }
 
 .form-grid {
