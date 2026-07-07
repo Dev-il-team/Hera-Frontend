@@ -187,6 +187,8 @@
 <script>
 
 import heraLogo from '@/assets/images/hera-logo.png';
+import useSubscriptionManagementStore
+  from '../../application/subscription-management.store.js';
 
 export default {
   name: 'SubscriptionView',
@@ -194,6 +196,9 @@ export default {
   data() {
     return {
       logo: heraLogo,
+
+      store: useSubscriptionManagementStore(),
+      upgrading: false,
 
       currentPlan: 'Basic',
 
@@ -235,6 +240,45 @@ export default {
   computed: {
     currentPlanKey() {
       return this.currentPlan.toLowerCase();
+    },
+  },
+
+  async mounted() {
+    // Load the active subscription from GET /subscriptions.
+    try {
+      await this.store.fetchSubscriptions();
+      const active = this.store.activeSubscription;
+      const plan = active?.plan ?? active?.planName ?? active?.name;
+      if (typeof plan === 'string' && plan.toLowerCase().includes('premium'))
+        this.currentPlan = 'Premium';
+    } catch {
+      /* keep default Basic plan if the API is unavailable */
+    }
+  },
+
+  methods: {
+    // POST /subscriptions — Subscribe to the Premium plan.
+    async upgradePlan() {
+      if (this.currentPlan === 'Premium' || this.upgrading) return;
+      this.upgrading = true;
+      try {
+        await this.store.subscribe({ plan: 'Premium' });
+        this.currentPlan = 'Premium';
+        this.$toast.add({
+          severity: 'success',
+          summary: this.$t('subscription.upgradeSuccess'),
+          life: 4000,
+        });
+      } catch (e) {
+        this.$toast.add({
+          severity: 'error',
+          summary: this.$t('errors.occurred'),
+          detail: e?.response?.data?.message ?? e?.message,
+          life: 5000,
+        });
+      } finally {
+        this.upgrading = false;
+      }
     },
   },
 };

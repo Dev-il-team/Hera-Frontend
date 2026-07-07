@@ -10,7 +10,8 @@
     "notifications": "Notificaciones",
     "routines": "Rutinas",
     "subscription": "Mi suscripción",
-    "profile": "Mi perfil"
+    "profile": "Mi perfil",
+    "rooms": "Habitaciones"
   },
   "authoring-phrase": {
     "intro": "Hecho con",
@@ -63,7 +64,12 @@
       "normal": "Normal",
       "alert": "Alerta",
       "unknown": "Desconocido"
-    }
+    },
+    "register": "Registrar cámara",
+    "registered": "Cámara registrada",
+    "name": "Nombre",
+    "location": "Ubicación",
+    "stream-url": "URL del stream"
   },
   "routines": {
     "title": "Rutinas",
@@ -263,56 +269,38 @@
     "eyebrow": "Gestión de Suscripciones",
     "title": "Planes de suscripción",
     "description": "Consulta tu plan actual, compara los beneficios disponibles y elige la mejor opción para gestionar tu hogar inteligente con Hera.",
-
     "currentPlanTag": "Plan actual: {plan}",
     "currentPlanAria": "Plan actual básico",
     "availablePlansAria": "Planes disponibles",
-
     "currentPlanLabel": "Plan actual",
-
     "plans": {
       "basic": "Básico",
       "premium": "Premium"
     },
-
     "basicDescription": "Funciones esenciales para monitorear y administrar tu hogar inteligente.",
     "premiumDescription": "Más automatización, análisis avanzado y soporte prioritario para aprovechar al máximo Hera.",
-
     "perMonth": "/ mes",
-
     "basicPriceAria": "Precio del plan básico",
     "premiumPriceAria": "Precio del plan premium",
-
     "activePlan": "Plan activo",
     "activePlanAria": "El plan básico está activo",
-
     "recommended": "Recomendado",
-
     "premiumLogoAlt": "Logo Hera Premium",
-
     "upgradeToPremium": "Mejorar a Premium",
     "upgradeToPremiumAria": "Mejorar al plan premium",
-
     "comparisonEyebrow": "Comparación",
     "comparisonTitle": "Beneficios por plan",
     "scenario": "Escenario 1: el usuario consulta los planes disponibles y sus beneficios.",
-
     "comparisonAria": "Comparación de beneficios entre plan básico y premium",
-
     "benefit": "Beneficio",
-
     "includedBasicAria": "Incluido en el plan básico",
     "notIncludedBasicAria": "No incluido en el plan básico",
     "includedPremiumAria": "Incluido en el plan premium",
-
     "upgradeBannerAria": "Mensaje para actualizar plan",
-
     "basicBannerTitle": "Usted cuenta con el plan básico.",
     "basicBannerDescription": "Cambie su plan a Premium para acceder a todos los beneficios disponibles.",
-
     "upgradeNow": "Mejorar ahora",
     "upgradeNowAria": "Mejorar ahora al plan premium",
-
     "features": {
       "consumptionSummary": "Resumen de consumo",
       "smartNotifications": "Notificaciones inteligentes",
@@ -320,6 +308,95 @@
       "automatedRoutines": "Rutinas automatizadas",
       "advancedAnalytics": "Análisis avanzado de consumo",
       "prioritySupport": "Soporte prioritario"
+    },
+    "upgradeSuccess": "¡Suscripción Premium activada!"
+  },
+  "actions": {
+    "cancel": "Cancelar",
+    "save": "Guardar"
+  },
+  "auth": {
+    "username": "Usuario",
+    "password": "Contraseña",
+    "confirm-password": "Confirmar contraseña",
+    "sign-out": "Cerrar sesión",
+    "invalid-credentials": "Usuario o contraseña incorrectos.",
+    "generic-error": "Ocurrió un error. Inténtalo de nuevo.",
+    "sign-in": {
+      "title": "Iniciar sesión",
+      "subtitle": "Accede a tu plataforma Hera",
+      "action": "Iniciar sesión",
+      "no-account": "¿No tienes una cuenta?"
+    },
+    "sign-up": {
+      "title": "Crear cuenta",
+      "subtitle": "Regístrate en Hera Platform",
+      "action": "Registrarse",
+      "have-account": "¿Ya tienes una cuenta?",
+      "password-hint": "Mínimo 6 caracteres.",
+      "passwords-mismatch": "Las contraseñas no coinciden.",
+      "success-title": "Cuenta creada",
+      "success-detail": "Ahora inicia sesión con tus credenciales."
     }
+  },
+  "profile": {
+    "title": "Mi perfil",
+    "subtitle": "Gestiona tu información personal.",
+    "create": "Crear perfil",
+    "created": "Perfil creado",
+    "loading": "Cargando perfil...",
+    "empty": "Aún no tienes un perfil. Crea uno para completar tu cuenta.",
+    "all-profiles": "Todos los perfiles",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "address": "Dirección",
+    "first-name": "Nombres",
+    "last-name": "Apellidos",
+    "street": "Calle",
+    "number": "Número",
+    "city": "Ciudad",
+    "postal-code": "Código postal",
+    "country": "País"
+  },
+  "rooms": {
+    "title": "Habitaciones",
+    "subtitle": "Organiza tus dispositivos por habitación.",
+    "new-room": "Nueva habitación",
+    "register-device": "Registrar dispositivo",
+    "loading": "Cargando habitaciones...",
+    "loading-devices": "Cargando dispositivos...",
+    "empty": "Aún no hay habitaciones. Crea la primera.",
+    "created": "Habitación creada",
+    "room-name": "Nombre de la habitación",
+    "room": "Habitación",
+    "device-registered": "Dispositivo registrado",
+    "devices-in": "Dispositivos en {room}",
+    "no-devices": "No hay dispositivos en esta habitación.",
+    "device-name": "Nombre del dispositivo",
+    "device-status": "Estado",
+    "device-type-label": "Tipo de dispositivo",
+    "device-type": {
+      "sensor": "Sensor",
+      "light": "Luz",
+      "thermostat": "Termostato",
+      "plug": "Enchufe inteligente",
+      "camera": "Cámara",
+      "other": "Otro"
+    }
+  },
+  "reports": {
+    "title": "Reportes de consumo",
+    "subtitle": "Registra y consulta el consumo energético de tus dispositivos.",
+    "record": "Registrar consumo",
+    "recorded": "Consumo registrado",
+    "loading": "Cargando reportes...",
+    "empty": "Aún no hay reportes de consumo.",
+    "total-kwh": "Consumo total",
+    "total-cost": "Costo total",
+    "device-name": "Dispositivo",
+    "period": "Período",
+    "period-placeholder": "p. ej. 2026-07",
+    "kwh": "kWh",
+    "cost": "Costo"
   }
 }

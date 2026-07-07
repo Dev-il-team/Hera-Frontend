@@ -2,21 +2,39 @@
 import LanguageSwitcher from './language-switcher.vue';
 import FooterContent from './footer-content.vue';
 import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import useIamStore from '../../../iam/application/iam.store.js';
 
 const { t } = useI18n();
+const route = useRoute();
+const router = useRouter();
+const iam = useIamStore();
+
+const isPublicView = computed(() => route.meta['public'] === true);
 
 const items = [
     { label: 'nav.consumption-summary', to: { name: 'consumption-summary' } },
+    { label: 'nav.rooms',               to: { name: 'rooms' } },
     { label: 'nav.notifications',       to: { name: 'notifications' } },
     { label: 'nav.routines',            to: { name: 'routines' } },
     { label: 'nav.subscription',        to: { name: 'subscription' } },
     { label: 'nav.profile',             to: { name: 'profile' } }
 ];
+
+const onSignOut = () => {
+  iam.signOut();
+  router.push({ name: 'sign-in' });
+};
 </script>
 
 <template>
   <pv-toast/>
   <pv-confirm-dialog/>
+  <template v-if="isPublicView">
+    <router-view/>
+  </template>
+  <template v-else>
   <header class="hera-header">
     <router-link :to="{ name: 'home' }" class="brand" :aria-label="t('nav.home')">
       <i class="pi pi-home brand-icon"></i>
@@ -33,6 +51,18 @@ const items = [
       </router-link>
     </nav>
     <language-switcher class="lang-switch"/>
+    <span v-if="iam.username" class="session-user">
+      <i class="pi pi-user mr-1"></i>{{ iam.username }}
+    </span>
+    <pv-button
+        icon="pi pi-sign-out"
+        text
+        rounded
+        class="sign-out-btn"
+        :aria-label="t('auth.sign-out')"
+        v-tooltip.bottom="t('auth.sign-out')"
+        @click="onSignOut"
+    />
   </header>
   <main class="main-content">
     <router-view/>
@@ -40,6 +70,7 @@ const items = [
   <footer class="footer">
     <footer-content/>
   </footer>
+  </template>
 </template>
 
 <style scoped>
@@ -94,6 +125,14 @@ const items = [
 }
 
 .lang-switch { margin-left: auto; }
+
+.session-user {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1a1f2b;
+  white-space: nowrap;
+}
+.sign-out-btn { color: #1a1f2b !important; }
 
 .main-content {
   min-height: calc(100vh - 200px);
